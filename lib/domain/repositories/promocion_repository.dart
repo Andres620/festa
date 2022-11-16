@@ -1,4 +1,5 @@
-import 'package:festa/domain/models/promocion.dart';
+
+import '../models/promocion.dart';
 
 abstract class promocionRepository {
   Future<List<Promocion>> getPromociones() {

@@ -1,4 +1,5 @@
-import 'package:festa/domain/models/promocion.dart';
+
+import '../../../../domain/models/promocion.dart';
 
 class PromoGenerator {
   int number_promos;
