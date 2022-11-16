@@ -1,3 +1,4 @@
+
 import '../../../../domain/models/promocion.dart';
 
 class PromoGenerator {
