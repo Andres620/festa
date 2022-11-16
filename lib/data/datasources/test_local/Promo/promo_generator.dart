@@ -1,4 +1,4 @@
-import '../../../../domain/models/promocion.dart';
+import 'package:flutter_festa_proyect/domain/models/promocion.dart';
 
 class PromoGenerator {
   int number_promos;
@@ -11,10 +11,11 @@ class PromoGenerator {
       Promocion new_promo = Promocion(
           id: i.toString(),
           fechaInicio: now,
-          fechaFin: now.add(const Duration(days: 10,)),
+          fechaFin: now.add(const Duration(
+            days: 10,
+          )),
           descripcion: 'Esta es la promocion ${i.toString()}',
-          imagen: 'URL ${i.toString()}'
-          );
+          imagen: 'URL ${i.toString()}');
       new_promos.add(new_promo);
     }
     return new_promos;
