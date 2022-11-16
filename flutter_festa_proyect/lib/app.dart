@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_festa_proyect/config/provider/eventos_provider.dart';
-import 'package:flutter_festa_proyect/presentation/Screens/listar_eventos_screen.dart';
+import 'package:flutter_festa_proyect/config/provider/event_provider.dart';
+import 'package:flutter_festa_proyect/presentation/Screens/list_events_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'data/datasources/test_local/Eventos/Eventosdb_fake.dart';
-import 'domain/caso_uso/evento/cu_listar_eventos.dart';
+import 'data/datasources/test_local/Event/eventsdb_fake.dart';
+import 'domain/use_case/event/cu_list_events.dart';
 
 class Festa extends StatelessWidget {
   const Festa({super.key});
@@ -14,13 +14,13 @@ class Festa extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => 
-        EventosProvider(cuListarEventos: CuListarEventos(EventosdbFake())) )
+        EventProvider(cuListEvents: CuListEvents(EventsdbFake())) )
       ],
     child: MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ListarEventosScreen(),
+      home: const ListEventsScreen(),
     )
     );
   }

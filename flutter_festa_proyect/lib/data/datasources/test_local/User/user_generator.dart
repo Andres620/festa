@@ -1,14 +1,14 @@
 import 'package:flutter_festa_proyect/domain/models/usuario.dart';
 
-class GeneradorUsuario {
-  int cantidad_usuarios;
+class UserGenerator {
+  int number_users;
 
-  GeneradorUsuario({required this.cantidad_usuarios});
+  UserGenerator({required this.number_users});
 
-  List<Usuario> crearFiesteros() {
-    List<Usuario> nuevos_fiesteros = [];
-    for (var i = 0; i < this.cantidad_usuarios; i++) {
-      Usuario nuevo_fiestero = Usuario(
+  List<Usuario> createFiesteros() {
+    List<Usuario> new_fiesteros = [];
+    for (var i = 0; i < this.number_users; i++) {
+      Usuario new_fiestero = Usuario(
           id: i.toString(),
           identificacion: "100${i.toString()}",
           nombre: 'Fiestero ${i.toString()}',
@@ -16,17 +16,17 @@ class GeneradorUsuario {
           telefono: 'Telefono ${i.toString()}',
           correElectronico: 'Fiestero${i.toString()}@gmail.com',
           tipo: "Fiestero",
-          nivel: GeneradorNivel.crearNivel());
+          nivel: LevelGenerator.createLevel());
 
-      nuevos_fiesteros.add(nuevo_fiestero);
+      new_fiesteros.add(new_fiestero);
     }
-    return nuevos_fiesteros;
+    return new_fiesteros;
   }
 
-  List<Usuario> crearDuenosDiscoteca() {
-    List<Usuario> nuevos_duenos = [];
-    for (var i = 0; i < this.cantidad_usuarios; i++) {
-      Usuario nuevo_dueno = Usuario(
+  List<Usuario> createClubOwner() {
+    List<Usuario> new_owners = [];
+    for (var i = 0; i < this.number_users; i++) {
+      Usuario new_owner = Usuario(
           id: i.toString(),
           identificacion: "100${i.toString()}",
           nombre: 'Dueño ${i.toString()}',
@@ -35,15 +35,15 @@ class GeneradorUsuario {
           correElectronico: 'Dueño${i.toString()}@gmail.com',
           tipo: "Dueño de discoteca");
 
-      nuevos_duenos.add(nuevo_dueno);
+      new_owners.add(new_owner);
     }
-    return nuevos_duenos;
+    return new_owners;
   }
 
-  List<Usuario> crearOrganizadores() {
-    List<Usuario> nuevos_organizadores = [];
-    for (var i = 0; i < this.cantidad_usuarios; i++) {
-      Usuario nuevo_organizador = Usuario(
+  List<Usuario> createOrganizer() {
+    List<Usuario> new_organizers = [];
+    for (var i = 0; i < this.number_users; i++) {
+      Usuario new_organizer = Usuario(
           id: i.toString(),
           identificacion: "100${i.toString()}",
           nombre: 'Organizador ${i.toString()}',
@@ -52,15 +52,15 @@ class GeneradorUsuario {
           correElectronico: 'Organizador${i.toString()}@gmail.com',
           tipo: "Organizador de eventos");
 
-      nuevos_organizadores.add(nuevo_organizador);
+      new_organizers.add(new_organizer);
     }
-    return nuevos_organizadores;
+    return new_organizers;
   }
 
-  List<Usuario> crearAdministradores() {
-    List<Usuario> nuevos_administradores = [];
-    for (var i = 0; i < this.cantidad_usuarios; i++) {
-      Usuario nuevo_administrador = Usuario(
+  List<Usuario> createAdminis() {
+    List<Usuario> new_admins = [];
+    for (var i = 0; i < this.number_users; i++) {
+      Usuario new_admin = Usuario(
           id: i.toString(),
           identificacion: "100${i.toString()}",
           nombre: 'Administrador ${i.toString()}',
@@ -69,14 +69,14 @@ class GeneradorUsuario {
           correElectronico: 'Admin${i.toString()}@gmail.com',
           tipo: "Admin");
 
-      nuevos_administradores.add(nuevo_administrador);
+      new_admins.add(new_admin);
     }
-    return nuevos_administradores;
+    return new_admins;
   }
 }
 
-class GeneradorNivel {
-  static Nivel crearNivel() {
+class LevelGenerator {
+  static Nivel createLevel() {
     return Nivel(nombre: "Alien", numeroNivel: 4, puntos: 300);
   }
 }
