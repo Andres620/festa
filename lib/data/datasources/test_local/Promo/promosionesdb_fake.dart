@@ -1,6 +1,6 @@
-import 'package:flutter_festa_proyect/domain/models/promocion.dart';
-import 'package:flutter_festa_proyect/domain/repositories/promocion_repository.dart';
-import 'package:flutter_festa_proyect/data/datasources/test_local/Promo/promo_generator.dart';
+import '../../../../domain/models/promocion.dart';
+import '../../../../domain/repositories/promocion_repository.dart';
+import 'promo_generator.dart';
 
 class PromocionesdbFake extends promocionRepository {
   @override
