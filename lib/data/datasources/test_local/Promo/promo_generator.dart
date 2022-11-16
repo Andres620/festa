@@ -1,4 +1,4 @@
-import 'package:flutter_festa_proyect/domain/models/promocion.dart';
+import 'package:festa/domain/models/promocion.dart';
 
 class PromoGenerator {
   int number_promos;
