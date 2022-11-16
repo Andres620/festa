@@ -1,12 +1,12 @@
 import 'package:flutter_festa_proyect/domain/models/evento.dart';
 import 'package:mongo_dart/mongo_dart.dart';  
 
-import '../../../domain/repositories/eventos_repository.dart';
+import '../../../domain/repositories/events_repository.dart';
 
-class Eventosdb extends EventosRepository{
+class Eventsdb extends EventsRepository{
 
   @override
-  Future<List<Evento>> obtenerEventos() {
+  Future<List<Evento>> getEvents() {
     // TODO: implement obtenerEventos
     throw UnimplementedError();
   }
