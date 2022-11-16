@@ -17,7 +17,7 @@ Future<void> initNotifications() async {
   final DarwinInitializationSettings initializationSettingsIOS =
       DarwinInitializationSettings();
 
-  final InitializationSettings initializationSettings = InitializatgitionSettings(
+  final InitializationSettings initializationSettings = InitializationSettings(
     android: initializationSettingsAndroid,
     iOS: initializationSettingsIOS,
   );
