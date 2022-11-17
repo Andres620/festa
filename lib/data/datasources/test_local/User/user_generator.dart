@@ -1,4 +1,4 @@
-
+import '../../../../domain/models/nivel.dart';
 import '../../../../domain/models/usuario.dart';
 
 class UserGenerator {
@@ -78,6 +78,6 @@ class UserGenerator {
 
 class LevelGenerator {
   static Nivel createLevel() {
-    return Nivel(nombre: "Alien", numeroNivel: 4, puntos: 300);
+    return Nivel(nombre: "Alien", numeroNivel: 4, puntos: 13000);
   }
 }
