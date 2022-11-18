@@ -29,8 +29,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  #mongodb
-  mongo_dart:
   #Inyeccion dependencias
   provider:
   flutter:
@@ -43,6 +41,7 @@ dependencies:
   flutter_local_notifications: ^12.0.3
   timezone: ^0.9.0
   rxdart: ^0.27.7
+  mongo_dart: ^0.8.0
 
 dev_dependencies:
   flutter_test:
