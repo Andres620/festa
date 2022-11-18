@@ -2,7 +2,7 @@ import '../models/promocion.dart';
 import '../repositories/promocion_repository.dart';
 
 class CuListPromos {
-  final promocionRepository _promocionRepository;
+  final PromocionRepository _promocionRepository;
 
   CuListPromos(this._promocionRepository);
 
