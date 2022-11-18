@@ -14,7 +14,7 @@ class EventosPorDiscotecadbFake extends EventosPorDiscotecaRepository {
 
     List<Evento> result = [
       for (var evento in response)
-        for (var disco in evento.discoteca)
+        for (var disco in evento.discoteca!)
           if (disco.id == idDiscoteca) evento
     ];
 

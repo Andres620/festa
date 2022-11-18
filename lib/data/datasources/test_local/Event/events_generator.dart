@@ -15,13 +15,10 @@ class EventsGenerator {
     final now = DateTime.now();
     for (var i = 0; i < this.number_events; i++) {
       Evento new_event = Evento(
-          id: i.toString(),
           nombre: "Evento ${i.toString()}",
           descripcion: "Este es el evento ${i.toString()} ",
           tipo: "Concierto ${i.toString()}",
-          fecha: now,
-          organizadorEventos: _createOrganizer(),
-          discoteca: _createClubs());
+          fecha: now);
 
       new_events.add(new_event);
     }
