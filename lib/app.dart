@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'config/provider/event_provider.dart';
-import 'data/datasources/test_local/Event/eventsdb_fake.dart';
+import 'data/datasources/mongodb/events_mongodb.dart';
 import 'domain/use_case/cu_list_events.dart';
 
 
@@ -15,10 +15,12 @@ class Festa extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => 
-        EventProvider(cuListEvents: CuListEvents(EventsdbFake())) )
+        EventProvider(cuListEvents: CuListEvents(EventsMongodb())) )
       ],
     child: MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        canvasColor: const Color.fromARGB(255, 50, 50, 50),
         primarySwatch: Colors.blue,
       ),
       home: const ListEventsScreen(),
