@@ -5,3 +5,4 @@ const MONGO_URL = 'mongodb+srv://Andres:12345@jmanuel.riqwdtq.mongodb.net/Festa?
 // const MONGO_URL = "mongodb+srv://jmmr:12345@jmanuel.riqwdtq.mongodb.net/test";
 
 const COLLECTION_EVENTS = "Eventos";
+const COLLECTION_PROMOTIONS = "Promocion";
