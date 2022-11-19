@@ -6,10 +6,6 @@ import 'dart:convert';
 
 import 'package:mongo_dart/mongo_dart.dart';
 
-import 'discoteca.dart';
-import 'promocion.dart';
-import 'usuario.dart';
-
 Evento eventoFromJson(String str) => Evento.fromJson(json.decode(str));
 
 String eventoToJson(Evento data) => json.encode(data.toJson());

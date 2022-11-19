@@ -10,7 +10,7 @@ class EventosPorDiscotecadbFake extends EventosPorDiscotecaRepository {
   Future<List<Evento>> getEventosPorDiscoteca() async {
     //_AnimatedMovies = AllMovies.where((i) => i.isAnimated).toList();
 
-    List<Evento> response = EventsGenerator(number_events: 3).createEvents();
+    List<Evento> response = EventsGenerator(numberEvents: 3).createEvents();
 
     List<Evento> result = [
       for (var evento in response)

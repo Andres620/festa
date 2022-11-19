@@ -12,15 +12,17 @@ class EventsMongodb extends EventsRepository {
       List<Evento> eventsList = [];
       var db = await Db.create(MONGO_URL);
       await db.open();
-      var events_response =
+      var eventsResponse =
           await db.collection(COLLECTION_EVENTS).find().toList();
 
-      events_response
-          .forEach((event_map) => {eventsList.add(Evento.fromJson(event_map))});
+      for (var eventMap in eventsResponse) {
+        eventsList.add(Evento.fromJson(eventMap));
+      }
+
       return eventsList;
     } catch (e) {
       throw AppException(
-          error_message:
+          errorMessage:
               'Failed to establish connection with data repository. ${e.toString()}');
     }
   }
