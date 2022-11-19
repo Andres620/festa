@@ -7,7 +7,7 @@ import 'data/datasources/mongodb/Promotionsdb.dart';
 void main() async{
   var promotionsdb = Promotionsdb();
   WidgetsFlutterBinding.ensureInitialized();
-  //promotionsdb.getPromociones();
-  //await initialize();
+  await initialize();
+  await promotionsdb.getPromociones(); //DELETE THIS
   runApp(const Festa());
 }
