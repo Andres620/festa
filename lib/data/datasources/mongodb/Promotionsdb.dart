@@ -16,8 +16,6 @@ class Promotionsdb extends PromocionRepository{
     print(status);
     var collection = db.collection(COLLECTION_PROMOTIONS);
     print(await collection.find().toList());
-
-
     await db.close();
     // ignore: todo
     // TODO: implement getPromociones
