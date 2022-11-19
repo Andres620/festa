@@ -10,7 +10,6 @@ class PromoGenerator {
     final now = DateTime.now();
     for (var i = 0; i < this.number_promos; i++) {
       Promocion new_promo = Promocion(
-          id: i.toString(),
           fechaInicio: now,
           fechaFin: now.add(const Duration(
             days: 10,
