@@ -12,4 +12,10 @@ class EventsdbFake extends EventsRepository {
     }
     return response;
   }
+  
+  @override
+  Future<Evento> getARandomEvent() {
+    // TODO: implement getARandomEvent
+    throw UnimplementedError();
+  }
 }
