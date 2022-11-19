@@ -8,7 +8,7 @@ import '../../../domain/models/promocion.dart';
 import '../../../domain/repositories/promocion_repository.dart';
 import 'credentials.dart';
 
-class Promotionsdb extends PromocionRepository{
+class PromotionsMongodb extends PromocionRepository{
 
   @override
   Future<List<Promocion>> getPromociones() async{
@@ -19,12 +19,15 @@ class Promotionsdb extends PromocionRepository{
       var promotions_response =
           await db.collection(COLLECTION_PROMOTIONS).find().toList();
       inspect(db);
-      promotions_response
-          .forEach((promotion_map) => {promotionsList.add(Promocion.fromJson(promotion_map))});
+
+      for (var promotion_map in promotions_response) {
+        promotionsList.add(Promocion.fromJson(promotion_map));
+      }
+
       return promotionsList;
     }catch(e){
       throw AppException(
-          error_message:
+          errorMessage:
               'Failed to establish connection with data repository. ${e.toString()}');
     }
   }
