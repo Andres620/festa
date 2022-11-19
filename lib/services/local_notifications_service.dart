@@ -1,9 +1,12 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
+
+BehaviorSubject<String?> onNotificationClick = BehaviorSubject();
 
 Future<void> initialize() async {
   tz.initializeTimeZones();
@@ -23,8 +26,16 @@ Future<void> initialize() async {
     iOS: initializationSettingsIOS,
   );
 
-  await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+    onDidReceiveNotificationResponse: onDidReceiveNotificationResponse);
   showIntervbalNotification();
+}
+
+void onDidReceiveNotificationResponse(NotificationResponse notificationResponse) async {
+    final String? payload = notificationResponse.payload;
+    if (notificationResponse.payload != null) {
+      onNotificationClick.add(payload);
+    }
 }
 
 Future<NotificationDetails> _notificationDetails() async {
@@ -88,6 +99,24 @@ Future<void> showIntervbalNotification(
       1,
       'Titulo de notificacion',
       'hola de saludo.',
+      RepeatInterval.everyMinute,
+      notificationDetails,
+      androidAllowWhileIdle: true);
+}
+
+Future<void> showIntervbalNotificationPayload(
+    // {required int id,
+    // required String title,
+    // required String body,
+    // required int seconds}
+    {required String payload}
+    ) async {
+  final notificationDetails = await _notificationDetails();
+  await flutterLocalNotificationsPlugin.periodicallyShow(
+      1,
+      'Titulo de notificacion',
+      'hola de saludo.',
+      payload: payload,
       RepeatInterval.everyMinute,
       notificationDetails,
       androidAllowWhileIdle: true);

@@ -1,11 +1,28 @@
+import 'package:festa/presentation/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../config/provider/event_provider.dart';
 import '../../domain/models/evento.dart';
+import '../../services/local_notifications_service.dart';
+import 'list_promos_screen.dart';
 
-class ListEventsScreen extends StatelessWidget {
-  const ListEventsScreen({super.key});
+class ListEventsScreen extends StatefulWidget {
+  const ListEventsScreen({Key? key}): super(key: key);
+
+  @override
+  State<ListEventsScreen> createState() => _ListEventsScreenState();
+}
+
+class _ListEventsScreenState extends State<ListEventsScreen> {
+  
+  @override
+  void initState() {
+    initialize();
+    listenToNotification();
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -75,5 +92,20 @@ class ListEventsScreen extends StatelessWidget {
             )
           ],
         )));
+  }
+
+  void listenToNotification() =>
+      onNotificationClick.stream.listen(onNoticationListener);
+
+
+  void onNoticationListener(String? payload) {
+    if (payload != null && payload.isNotEmpty) {
+      print('payload $payload');
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: ((context) => SecondScreen(payload: payload))));
+    }
   }
 }
