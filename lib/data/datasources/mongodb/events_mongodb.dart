@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:festa/domain/exceptions/app_exception.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
