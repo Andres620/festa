@@ -9,13 +9,13 @@ class CuListEvents {
 
   Future<List<Evento>> getAllEvents() async {
     try {
-      List<Evento> events_list = await _eventsRepository.getEvents();
-      if (events_list.isEmpty) {
-        throw AppException(error_message: 'There are no events at this time.');
+      List<Evento> eventsList = await _eventsRepository.getEvents();
+      if (eventsList.isEmpty) {
+        throw AppException(errorMessage: 'There are no events at this time.');
       }
-      return events_list;
+      return eventsList;
     } catch (e) {
-      throw AppException(error_message: e.toString());
+      throw AppException(errorMessage: e.toString());
     }
   }
 }

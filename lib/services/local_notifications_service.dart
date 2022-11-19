@@ -1,7 +1,4 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import '../presentation/Screens/list_events_screen.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
@@ -70,7 +67,7 @@ Future<void> showScheduledNotification(
     'Titulo de notificacion',
     'hola de saludo.',
     tz.TZDateTime.from(
-      DateTime.now().add(Duration(seconds: 4)),
+      DateTime.now().add(const Duration(seconds: 4)),
       tz.local,
     ),
     notificationDetails,
@@ -111,5 +108,4 @@ Future<void> showNotificationWithPayload(
 void onDidReceiveLocalNotification(
     int id, String? title, String? body, String? payload) {
   // display a dialog with the notification details, tap ok to go to another page
-  print('id: $id');
 }
