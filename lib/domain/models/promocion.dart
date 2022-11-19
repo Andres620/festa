@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:mongo_dart/mongo_dart.dart';
+
 Promocion promosionFromJson(String str) => Promocion.fromJson(json.decode(str));
 
 String promosionToJson(Promocion data) => json.encode(data.toJson());
@@ -17,7 +19,7 @@ class Promocion {
         required this.imagen,
     });
 
-    final String? id;
+    final ObjectId? id;
     final DateTime fechaInicio;
     final DateTime fechaFin;
     final String descripcion;
