@@ -18,7 +18,7 @@ class EventsMongodb extends EventsRepository {
       for (var eventMap in eventsResponse) {
         eventsList.add(Evento.fromJson(eventMap));
       }
-
+      db.close();
       return eventsList;
     } catch (e) {
       throw AppException(
