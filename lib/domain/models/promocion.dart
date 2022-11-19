@@ -35,8 +35,8 @@ class Promocion {
 
     Map<String, dynamic> toJson() => {
         "_id": id,
-        "FechaInicio": fechaInicio,
-        "FechaFin": fechaFin,
+        "FechaInicio": fechaInicio.toString(),
+        "FechaFin": fechaFin.toString(),
         "Descripcion": descripcion,
         "Imagen": imagen,
     };

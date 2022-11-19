@@ -1,7 +1,6 @@
 // ignore: file_names
 // ignore_for_file: non_constant_identifier_names
 
-import 'dart:developer';
 import 'package:mongo_dart/mongo_dart.dart';
 import '../../../domain/exceptions/app_exception.dart';
 import '../../../domain/models/promocion.dart';
@@ -18,12 +17,11 @@ class PromotionsMongodb extends PromocionRepository{
       await db.open();
       var promotions_response =
           await db.collection(COLLECTION_PROMOTIONS).find().toList();
-      inspect(db);
 
       for (var promotion_map in promotions_response) {
         promotionsList.add(Promocion.fromJson(promotion_map));
       }
-
+      db.close();
       return promotionsList;
     }catch(e){
       throw AppException(
