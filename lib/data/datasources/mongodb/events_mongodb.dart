@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:festa/domain/exceptions/app_exception.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
@@ -20,6 +22,27 @@ class EventsMongodb extends EventsRepository {
       }
       db.close();
       return eventsList;
+    } catch (e) {
+      throw AppException(
+          errorMessage:
+              'Failed to establish connection with data repository. ${e.toString()}');
+    }
+  }
+
+
+  @override
+  Future<Evento> getARandomEvent() async {
+    try {
+      Evento event;
+      var db = await Db.create(MONGO_URL);
+      await db.open();
+      var eventsResponse =
+          await db.collection(COLLECTION_EVENTS).find().toList();
+      var random = Random().nextInt(eventsResponse.length);
+      event = Evento.fromJson(eventsResponse[random]);
+      db.close();
+      print(event);
+      return event;
     } catch (e) {
       throw AppException(
           errorMessage:
