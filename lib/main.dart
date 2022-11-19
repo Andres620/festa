@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'data/datasources/mongodb/Promotionsdb.dart';
 
-
-
 void main() async{
   var promotionsdb = Promotionsdb();
   WidgetsFlutterBinding.ensureInitialized();

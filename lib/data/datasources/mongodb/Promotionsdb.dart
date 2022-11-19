@@ -15,12 +15,7 @@ class Promotionsdb extends PromocionRepository{
     var status = db.serverStatus();
     print(status);
     var collection = db.collection(COLLECTION_PROMOTIONS);
-    var promotion = collection.find().toList();
-    // var promotionDetails = promosionFromJson(promotion); 
     print(await collection.find().toList());
-
-    //hacer lo del arabe den el video de ontener de una coleccion o leer la documentacion de mongodart
-
     await db.close();
     // ignore: todo
     // TODO: implement getPromociones
