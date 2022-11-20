@@ -3,6 +3,9 @@ import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
+import '../data/datasources/mongodb/events_mongodb.dart';
+import '../domain/models/evento.dart';
+
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
@@ -28,7 +31,7 @@ Future<void> initialize() async {
 
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,
     onDidReceiveNotificationResponse: onDidReceiveNotificationResponse);
-  showIntervbalNotification();
+  showIntervbalNotificationPayload();
 }
 
 void onDidReceiveNotificationResponse(NotificationResponse notificationResponse) async {
@@ -109,13 +112,15 @@ Future<void> showIntervbalNotificationPayload(
     // required String title,
     // required String body,
     // required int seconds}
-    {required String payload}
     ) async {
   final notificationDetails = await _notificationDetails();
+  var eventsdb = EventsMongodb();
+  var event = await eventsdb.getARandomEvent();
+  var payload = eventoToJson(event);
   await flutterLocalNotificationsPlugin.periodicallyShow(
       1,
-      'Titulo de notificacion',
-      'hola de saludo.',
+      event.nombre,
+      event.descripcion,
       payload: payload,
       RepeatInterval.everyMinute,
       notificationDetails,

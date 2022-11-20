@@ -38,7 +38,7 @@ class EventsMongodb extends EventsRepository {
       await db.open();
       var eventsResponse =
           await db.collection(COLLECTION_EVENTS).find().toList();
-      var random = Random().nextInt((eventsResponse.length+1));
+      var random = Random().nextInt(eventsResponse.length);
       print(random);
       event = Evento.fromJson(eventsResponse[random]);
       db.close();
