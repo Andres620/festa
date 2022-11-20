@@ -7,11 +7,15 @@ import '../data/datasources/mongodb/credentials.dart';
 import '../data/datasources/mongodb/events_mongodb.dart';
 import '../domain/models/evento.dart';
 
+
+// Instance of the plugin class
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 BehaviorSubject<String?> onNotificationClick = BehaviorSubject();
 
+///initializes the notification service with the necessary 
+///configurations and plugins for android and for iOS
 Future<void> initialize() async {
   tz.initializeTimeZones();
   // initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
@@ -42,6 +46,12 @@ void onDidReceiveNotificationResponse(NotificationResponse notificationResponse)
     }
 }
 
+void onDidReceiveLocalNotification(
+    int id, String? title, String? body, String? payload) {
+  // display a dialog with the notification details, tap ok to go to another page
+}
+
+/// Contains notification details specific to each platform.
 Future<NotificationDetails> _notificationDetails() async {
   const AndroidNotificationDetails androidNotificationDetails =
       AndroidNotificationDetails('channel_id', 'channel_name',
@@ -59,23 +69,21 @@ Future<NotificationDetails> _notificationDetails() async {
   );
 }
 
+/// It is used to display a notification only once.
+/// It is used when a new event is added to the database for immediate notification. 
 Future<void> showNotification(
-    // {
-    // required int id,
+    // {required int id,
     // required String title,
-    // required String body,}
-    ) async {
+    // required String body,
+    // required int seconds}
+) async {
   final notificationDetails = await _notificationDetails();
   await flutterLocalNotificationsPlugin.show(
       1, 'Titulo de notificacion', 'hola de saludo.', notificationDetails);
 }
 
-Future<void> showScheduledNotification(
-    // {required int id,
-    // required String title,
-    // required String body,
-    // required int seconds}
-    ) async {
+/// It is used to display a notification on a specific date..
+Future<void> showScheduledNotification() async {
   final notificationDetails = await _notificationDetails();
   await flutterLocalNotificationsPlugin.zonedSchedule(
     1,
@@ -92,12 +100,9 @@ Future<void> showScheduledNotification(
   );
 }
 
-Future<void> showIntervbalNotification(
-    // {required int id,
-    // required String title,
-    // required String body,
-    // required int seconds}
-    ) async {
+/// It periodically displays notifications but it is not possible
+/// to interact with them since they do not handle a payload.
+Future<void> showIntervbalNotification() async {
   final notificationDetails = await _notificationDetails();
   await flutterLocalNotificationsPlugin.periodicallyShow(
       1,
@@ -108,12 +113,9 @@ Future<void> showIntervbalNotification(
       androidAllowWhileIdle: true);
 }
 
-Future<void> showIntervbalNotificationPayload(
-    // {required int id,
-    // required String title,
-    // required String body,
-    // required int seconds}
-    ) async {
+/// It periodically displays notifications that can be interacted with because they have a payload.
+/// They are used to notify and open the event view.
+Future<void> showIntervbalNotificationPayload() async {
   final notificationDetails = await _notificationDetails();
   var eventsdb = EventsMongodb(connectionString: MONGO_URL, collection: COLLECTION_EVENTS);
   var event = await eventsdb.getARandomEvent();
@@ -128,19 +130,4 @@ Future<void> showIntervbalNotificationPayload(
       androidAllowWhileIdle: true);
 }
 
-Future<void> showNotificationWithPayload(
-    // {required int id,
-    // required String title,
-    // required String body,
-    // required String payload}
-    {required String payload}) async {
-  final notificationDetails = await _notificationDetails();
-  await flutterLocalNotificationsPlugin.show(
-      1, 'Titulo de notificacion', 'hola de saludo.', notificationDetails,
-      payload: payload);
-}
 
-void onDidReceiveLocalNotification(
-    int id, String? title, String? body, String? payload) {
-  // display a dialog with the notification details, tap ok to go to another page
-}
