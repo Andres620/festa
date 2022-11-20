@@ -4,6 +4,7 @@ import 'package:mongo_dart/mongo_dart.dart';
 import '../../../domain/models/evento.dart';
 import '../../../domain/repositories/events_repository.dart';
 
+/// Class that implements the events contract interacting with mongo atlas. 
 class EventsMongodb extends EventsRepository {
   final String connectionString;
   final String collection;
