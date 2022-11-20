@@ -3,6 +3,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
+import '../data/datasources/mongodb/credentials.dart';
 import '../data/datasources/mongodb/events_mongodb.dart';
 import '../domain/models/evento.dart';
 
@@ -114,7 +115,7 @@ Future<void> showIntervbalNotificationPayload(
     // required int seconds}
     ) async {
   final notificationDetails = await _notificationDetails();
-  var eventsdb = EventsMongodb();
+  var eventsdb = EventsMongodb(connectionString: MONGO_URL, collection: COLLECTION_EVENTS);
   var event = await eventsdb.getARandomEvent();
   var payload = eventoToJson(event);
   await flutterLocalNotificationsPlugin.periodicallyShow(

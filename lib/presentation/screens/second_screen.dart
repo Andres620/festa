@@ -37,16 +37,16 @@ class SecondScreen extends StatelessWidget {
                       evento["Nombre"],
                       textAlign: TextAlign.left,
                       style: const TextStyle(
-                          fontSize: 20, color: Color.fromARGB(255, 235, 238, 39)),
+                          fontSize: 23, color: Color.fromARGB(255, 235, 238, 39)),
                     ),
                     Text(
                       evento["Tipo"],
                       textAlign: TextAlign.left,
                       style: const TextStyle(
-                          fontSize: 15, color: Color.fromARGB(255, 211, 210, 208)),
+                          fontSize: 20, color: Color.fromARGB(255, 235, 238, 39)),
                     ),
                     Text(
-                      'Lugar: ${evento["Descripcion"]}',
+                      evento["Descripcion"],
                       textAlign: TextAlign.left,
                       style: const TextStyle(
                           fontSize: 20, color: Color.fromARGB(255, 235, 238, 39)),

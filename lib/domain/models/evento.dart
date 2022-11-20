@@ -1,15 +1,16 @@
-// To parse this JSON data, do
-//
-//     final evento = eventoFromJson(jsonString);
-
 import 'dart:convert';
 
 import 'package:mongo_dart/mongo_dart.dart';
 
+/// Maps a string containing the correct information of an 
+/// event to an object of type event.
 Evento eventoFromJson(String str) => Evento.fromJson(json.decode(str));
 
+///Maps an object of type event to a string containing the 
+///event information. 
 String eventoToJson(Evento data) => json.encode(data.toJson());
 
+/// Entity class that allows interaction with events.
 class Evento {
   Evento({
     this.id,
@@ -31,6 +32,8 @@ class Evento {
   final List<dynamic>? discoteca;
   final ObjectId? promocion;
 
+  /// Maps a json.decode() containing the information of an 
+  /// event to an object of type event. 
   factory Evento.fromJson(Map<String, dynamic> json) => Evento(
         id: (json["_id"] as ObjectId),
         nombre: json["Nombre"],
@@ -42,6 +45,8 @@ class Evento {
         promocion: json["Promocion"]
       );
 
+  /// Maps an event to a json.encode() containing the
+  /// event information. 
   Map<String, dynamic> toJson() => {
         "_id": id,
         "Nombre": nombre,
