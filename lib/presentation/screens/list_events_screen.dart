@@ -1,11 +1,28 @@
+import 'package:festa/presentation/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../config/provider/event_provider.dart';
 import '../../domain/models/evento.dart';
+import '../../services/local_notifications_service.dart';
+import 'list_promos_screen.dart';
 
-class ListEventsScreen extends StatelessWidget {
-  const ListEventsScreen({super.key});
+class ListEventsScreen extends StatefulWidget {
+  const ListEventsScreen({Key? key}): super(key: key);
+
+  @override
+  State<ListEventsScreen> createState() => _ListEventsScreenState();
+}
+
+class _ListEventsScreenState extends State<ListEventsScreen> {
+  
+  @override
+  void initState() {
+    initialize();
+    listenToNotification();
+    super.initState();
+  }
+
 
   ///Is the main method of the view and is responsible for displaying the information of each event.
   @override
@@ -70,12 +87,27 @@ class ListEventsScreen extends StatelessWidget {
                       fontSize: 15, color: Color.fromARGB(255, 211, 210, 208)),
                 ),
                 Text(
-                  '${evento.fecha.day} - ${evento.fecha.month}',
+                  '${evento.fecha.year} - ${evento.fecha.month} - ${evento.fecha.day}',
                   textAlign: TextAlign.right,
                   style: const TextStyle(
                       fontSize: 15, color: Color.fromARGB(255, 219, 177, 9)),
                 )
               ],
             )));
+  }
+
+  void listenToNotification() =>
+      onNotificationClick.stream.listen(onNoticationListener);
+
+
+  void onNoticationListener(String? payload) {
+    if (payload != null && payload.isNotEmpty) {
+      print('payload $payload');
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: ((context) => SecondScreen(payload: payload))));
+    }
   }
 }

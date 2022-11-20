@@ -2,6 +2,7 @@ import 'package:festa/data/datasources/mongodb/credentials.dart';
 import 'package:festa/data/datasources/mongodb/events_mongodb.dart';
 import 'package:festa/data/datasources/test_local/Event/eventsdb_fake.dart';
 import 'package:festa/domain/exceptions/app_exception.dart';
+import 'package:festa/domain/models/evento.dart';
 import 'package:festa/domain/use_case/cu_list_events.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -40,5 +41,12 @@ void main() {
         collection: COLLECTION_EVENTS);
     expect(() async => await eventsMongodb.getEvents(),
         throwsA((e) => e is AppException));
+  });
+
+  
+  test('get a random event', () async {
+    var eventdb = EventsMongodb(connectionString: MONGO_URL, collection: COLLECTION_EVENTS);
+    var response = await eventdb.getARandomEvent() ;
+    expect(response, isA<Evento>());
   });
 }

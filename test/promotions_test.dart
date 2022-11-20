@@ -1,4 +1,6 @@
+import 'package:festa/data/datasources/mongodb/events_mongodb.dart';
 import 'package:festa/data/datasources/mongodb/promotions_mongodb.dart';
+import 'package:festa/domain/models/evento.dart';
 import 'package:festa/domain/models/promocion.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mongo_dart/mongo_dart.dart';
@@ -21,7 +23,7 @@ void main(){
     expect(response, isA<Promocion>());
   });
 
-    test('promotion to json', () {
+  test('promotion to json', () {
     var promotion = Promocion(
       id: ObjectId(),
       fechaInicio: DateTime.now(),

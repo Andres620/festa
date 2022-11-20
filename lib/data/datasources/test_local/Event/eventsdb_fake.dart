@@ -14,4 +14,10 @@ class EventsdbFake extends EventsRepository {
     List<Evento> response = EventsGenerator(numberEvents: numberEvents).createEvents();
     return response;
   }
+  
+  @override
+  Future<Evento> getARandomEvent() {
+    // TODO: implement getARandomEvent
+    throw UnimplementedError();
+  }
 }
