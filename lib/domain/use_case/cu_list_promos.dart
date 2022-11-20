@@ -1,8 +1,11 @@
-import 'package:festa/domain/models/promocion.dart';
-import 'package:festa/domain/repositories/promocion_repository.dart';
+
+
+import '../models/promocion.dart';
+import '../repositories/promocion_repository.dart';
+
 
 class CuListPromos {
-  final promocionRepository _promocionRepository;
+  final PromocionRepository _promocionRepository;
 
   CuListPromos(this._promocionRepository);
 

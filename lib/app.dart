@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'config/provider/event_provider.dart';
-import 'data/datasources/test_local/Event/eventsdb_fake.dart';
+import 'data/datasources/mongodb/credentials.dart';
+import 'data/datasources/mongodb/events_mongodb.dart';
 import 'domain/use_case/cu_list_events.dart';
-
 
 class Festa extends StatelessWidget {
   const Festa({super.key});
@@ -13,17 +13,20 @@ class Festa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => 
-        EventProvider(cuListEvents: CuListEvents(EventsdbFake())) )
-      ],
-    child: MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const ListEventsScreen(),
-    )
-    );
+        providers: [
+          ChangeNotifierProvider(
+              create: (context) => EventProvider(
+                  cuListEvents: CuListEvents(EventsMongodb(
+                      connectionString: MONGO_URL,
+                      collection: COLLECTION_EVENTS))))
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            canvasColor: const Color.fromARGB(255, 50, 50, 50),
+            primarySwatch: Colors.blue,
+          ),
+          home: const ListEventsScreen(),
+        ));
   }
 }
-

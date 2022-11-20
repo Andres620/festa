@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:festa/config/provider/promo_provider.dart';
-import 'package:festa/domain/models/promocion.dart';
 import 'package:provider/provider.dart';
+
+import '../../config/provider/promo_provider.dart';
+import '../../domain/models/promocion.dart';
 
 class ListPromocionesScreen extends StatelessWidget {
   const ListPromocionesScreen({super.key});

@@ -1,38 +1,25 @@
-
-import '../../../../domain/models/discoteca.dart';
 import '../../../../domain/models/evento.dart';
-import '../../../../domain/models/usuario.dart';
-import '../Club/club_generator.dart';
-import '../User/user_generator.dart';
 
+/// Class works as a fake event repository.
 class EventsGenerator {
-  int number_events;
+  int numberEvents;
 
-  EventsGenerator({required this.number_events});
+  EventsGenerator({required this.numberEvents});
 
+  /// It is in charge of creating fake events to be used in crazy tests.
+  /// Events are created with incremental information from zero to @numberEvents.
   List<Evento> createEvents() {
-    List<Evento> new_events = [];
+    List<Evento> newEvents = [];
     final now = DateTime.now();
-    for (var i = 0; i < this.number_events; i++) {
-      Evento new_event = Evento(
-          id: i.toString(),
+    for (var i = 0; i < numberEvents; i++) {
+      Evento newEvent = Evento(
           nombre: "Evento ${i.toString()}",
           descripcion: "Este es el evento ${i.toString()} ",
           tipo: "Concierto ${i.toString()}",
-          fecha: now,
-          organizadorEventos: _createOrganizer(),
-          discoteca: _createClubs());
+          fecha: now);
 
-      new_events.add(new_event);
+      newEvents.add(newEvent);
     }
-    return new_events;
-  }
-
-  Usuario _createOrganizer (){
-    return UserGenerator(number_users: 1).createOrganizer()[0];
-  }
-
-  List<Discoteca> _createClubs(){
-    return ClubGenerator(number_clubs: 1).createClubs();
+    return newEvents;
   }
 }

@@ -1,8 +1,10 @@
 // To parse this JSON data, do
 //
-//     final promosion = promosionFromJson(jsonString);
+//     final promocion = promosionFromJson(jsonString);
 
 import 'dart:convert';
+
+import 'package:mongo_dart/mongo_dart.dart';
 
 Promocion promosionFromJson(String str) => Promocion.fromJson(json.decode(str));
 
@@ -17,7 +19,7 @@ class Promocion {
         required this.imagen,
     });
 
-    final String? id;
+    final ObjectId? id;
     final DateTime fechaInicio;
     final DateTime fechaFin;
     final String descripcion;
@@ -33,8 +35,8 @@ class Promocion {
 
     Map<String, dynamic> toJson() => {
         "_id": id,
-        "FechaInicio": fechaInicio,
-        "FechaFin": fechaFin,
+        "FechaInicio": fechaInicio.toString(),
+        "FechaFin": fechaFin.toString(),
         "Descripcion": descripcion,
         "Imagen": imagen,
     };
