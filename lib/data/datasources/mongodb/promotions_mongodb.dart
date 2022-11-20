@@ -7,8 +7,10 @@ import '../../../domain/models/promocion.dart';
 import '../../../domain/repositories/promocion_repository.dart';
 import 'credentials.dart';
 
+/// Class that communicates with MongoDB to interact with promotions.
 class PromotionsMongodb extends PromocionRepository{
 
+  /// Returns all promotions from the database.
   @override
   Future<List<Promocion>> getPromociones() async{
     try{

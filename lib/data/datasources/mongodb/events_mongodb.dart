@@ -35,6 +35,8 @@ class EventsMongodb extends EventsRepository {
   }
 
 
+  ///Returns a random event from the database.
+  ///This is used to send notifications to users.
   @override
   Future<Evento> getARandomEvent() async {
     try {
