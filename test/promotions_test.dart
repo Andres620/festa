@@ -35,12 +35,4 @@ void main(){
     var response = promosionToJson(promotion);
     expect(response, isA<String>());
   });
-
-
-  test('get randomEvent', () async {
-    var eventdb = EventsMongodb();
-    var response = await eventdb.getARandomEvent() ;
-    expect(response, isA<Evento>());
-  });
-
 }
