@@ -9,45 +9,41 @@ class ListPromocionesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final providerPromociones = Provider.of<PromoProvider>(context);
-    return MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.lightBlue),
-        home: Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("images/img1.jpg"), fit: BoxFit.cover)),
-            child: Scaffold(
-                appBar: AppBar(
-                      title: const Text('Promociones'),
-                      backgroundColor: const Color.fromARGB(255, 39, 39, 39)),
-                body: FutureBuilder<List<Promocion>>(
-                  future: providerPromociones.cuListPromos.getAllPromos(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return ListView.builder(
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: ((context, index) {
-                            Promocion promocion = snapshot.data![index];
-                            return _buidCards(promocion);
-                          }));
-                    } else if (snapshot.hasError) {
-                      return Text('${snapshot.hasError}');
-                    }
-                    return const Center(
-                        child: SizedBox(
-                      width: .5,
-                      height: .5,
+    return Scaffold(
+      appBar: AppBar(
+            title: const Text('Promociones'),
+            backgroundColor: const Color.fromARGB(255, 39, 39, 39)),
+      body:   FutureBuilder<List<Promocion>>(
+                future: providerPromociones.cuListPromos.getAllPromos(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: ((context, index) {
+                          Promocion event = snapshot.data![index];
+                          return _buidCards(event);
+                        }));
+                  } else if (snapshot.hasError) {
+                    return Text('${snapshot.hasError}');
+                  }
+                  return const Center(
+                    child: SizedBox(
+                      width: 20,
+                      height: 20,
                       child: CircularProgressIndicator(),
-                    ));
-                  },
-                ))));
+                    ),
+                  );
+                },
+              ),
+    );
   }
 
   Widget _buidCards(Promocion promo) {
     return Container(
         clipBehavior: Clip.none,
-        height: 100,
+        height: 80,
         child: Card(
-            color: const Color.fromARGB(252, 0, 0, 0),
+            color: const Color.fromARGB(250, 72, 72, 72),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
             margin: const EdgeInsets.all(8),
@@ -55,19 +51,18 @@ class ListPromocionesScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Image.asset(promo.imagen),
                 Text(
                   promo.descripcion,
                   textAlign: TextAlign.left,
                   style: const TextStyle(
-                      fontSize: 15, color: Color.fromARGB(255, 202, 219, 8)),
+                      fontSize: 20, color: Color.fromARGB(255, 235, 238, 39)),
                 ),
                 Text(
-                  '${promo.fechaInicio} - ${promo.fechaFin}',
+                  'Válido hasta: ${promo.fechaInicio.year} - ${promo.fechaInicio.month} - ${promo.fechaInicio.day}',
                   textAlign: TextAlign.right,
                   style: const TextStyle(
-                      fontSize: 15, color: Color.fromARGB(255, 245, 237, 8)),
-                ),
+                      fontSize: 15, color: Color.fromARGB(255, 219, 177, 9)),
+                )
               ],
             )));
   }
