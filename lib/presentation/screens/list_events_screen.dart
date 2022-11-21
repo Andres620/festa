@@ -50,9 +50,9 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
           },
           currentIndex: _actualPage,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "home", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
-            BottomNavigationBarItem(icon: Icon(Icons.attach_money), label: "promotions", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
-            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "event_club", backgroundColor: Color.fromARGB(255, 235, 238, 39))
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Eventos", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
+            BottomNavigationBarItem(icon: Icon(Icons.attach_money), label: "Promociones", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
+            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "Eventos Discoteca", backgroundColor: Color.fromARGB(255, 235, 238, 39))
           ],
         ),);
   }
