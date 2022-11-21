@@ -17,13 +17,8 @@ class ListPromocionesScreen extends StatelessWidget {
                     image: AssetImage("images/img1.jpg"), fit: BoxFit.cover)),
             child: Scaffold(
                 appBar: AppBar(
-                    title: const Text(
-                      "Promociones",
-                      style: const TextStyle(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 248, 248, 248)),
-                    ),
-                    backgroundColor: Color.fromARGB(255, 23, 22, 22)),
+                      title: const Text('Promociones'),
+                      backgroundColor: const Color.fromARGB(255, 39, 39, 39)),
                 body: FutureBuilder<List<Promocion>>(
                   future: providerPromociones.cuListPromos.getAllPromos(),
                   builder: (context, snapshot) {
@@ -60,12 +55,7 @@ class ListPromocionesScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  promo.imagen,
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(
-                      fontSize: 15, color: Color.fromARGB(255, 190, 190, 6)),
-                ),
+                Image.asset(promo.imagen),
                 Text(
                   promo.descripcion,
                   textAlign: TextAlign.left,

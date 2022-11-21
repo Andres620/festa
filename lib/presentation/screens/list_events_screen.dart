@@ -35,9 +35,6 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-        appBar: AppBar(
-            title: const Text('Eventos'),
-            backgroundColor: const Color.fromARGB(255, 39, 39, 39)),
         // drawer: Drawer(
         //   child: Column(
         //       children: [const Text("Opcion 1"), const Text("Opcion 2")]),
@@ -82,6 +79,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final providerEventos = Provider.of<EventProvider>(context);
     return Scaffold(
+      appBar: AppBar(
+            title: const Text('Eventos'),
+            backgroundColor: const Color.fromARGB(255, 39, 39, 39)),
       body:   FutureBuilder<List<Evento>>(
                 future: providerEventos.cuListEvents.getAllEvents(),
                 builder: (context, snapshot) {
