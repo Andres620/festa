@@ -41,6 +41,8 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
         // ),
         body: _pages[_actualPage],
         bottomNavigationBar: BottomNavigationBar(
+          unselectedLabelStyle: const TextStyle(color: Colors.white, fontSize: 14),
+          unselectedItemColor: Colors.white,
           onTap: (index){
             setState(() {
               _actualPage = index;
@@ -48,9 +50,9 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
           },
           currentIndex: _actualPage,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
-            BottomNavigationBarItem(icon: Icon(Icons.attach_money), label: "promotions"),
-            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "event_club")
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "home", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
+            BottomNavigationBarItem(icon: Icon(Icons.attach_money), label: "promotions", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
+            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "event_club", backgroundColor: Color.fromARGB(255, 235, 238, 39))
           ],
         ),);
   }
