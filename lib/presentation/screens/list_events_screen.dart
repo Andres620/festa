@@ -99,6 +99,10 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
   void listenToNotification() =>
       onNotificationClick.stream.listen(onNoticationListener);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d6d1eb96048fdf7387a8d461787fa762a1c6ffeb
   /// It loads the notification payload and sends it to a second view.
   void onNoticationListener(String? payload) {
     if (payload != null && payload.isNotEmpty) {

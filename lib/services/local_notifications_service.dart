@@ -112,7 +112,6 @@ Future<void> showIntervbalNotification() async {
       androidAllowWhileIdle: true);
 }
 
-
 /// It periodically displays notifications that can be interacted with because they have a payload.
 /// They are used to notify and open the event view.
 Future<void> showIntervbalNotificationPayload() async {
