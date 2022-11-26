@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:mongo_dart/mongo_dart.dart';
+
 import 'nivel.dart';
 
 Usuario usuarioFromJson(String str) => Usuario.fromJson(json.decode(str));
@@ -23,7 +25,7 @@ class Usuario {
     this.nivel,
   });
 
-  final String? id;
+  final ObjectId? id;
   final String identificacion;
   final String nombre;
   final int edad;
@@ -42,7 +44,7 @@ class Usuario {
         correElectronico: json["CorreElectronico"],
         contrasena: json["Contraseña"],
         tipo: json["Tipo"],
-        nivel: Nivel.fromJson(json["Nivel"]),
+        nivel: json["Nivel"] == null ? null : Nivel.fromJson(json["Nivel"]),
       );
 
   Map<String, dynamic> toJson() => {
