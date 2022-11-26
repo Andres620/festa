@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../../config/provider/event_provider.dart';
 import '../../domain/models/evento.dart';
 import '../../services/local_notifications_service.dart';
+import 'list_discos_screen.dart';
 import 'list_promos_screen.dart';
 
 class ListEventsScreen extends StatefulWidget {
@@ -28,7 +29,8 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
   int _actualPage = 0;
   List<Widget> _pages = [
     HomePage(),
-    ListPromocionesScreen()
+    ListPromocionesScreen(),
+    ListDiscosScreen()
   ];
   ///Is the main method of the view and is responsible for displaying the information of each event.
   @override
@@ -52,7 +54,7 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Eventos", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
             BottomNavigationBarItem(icon: Icon(Icons.attach_money), label: "Promociones", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
-            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "Eventos Discoteca", backgroundColor: Color.fromARGB(255, 235, 238, 39))
+            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "Discotecas", backgroundColor: Color.fromARGB(255, 235, 238, 39))
           ],
         ),);
   }

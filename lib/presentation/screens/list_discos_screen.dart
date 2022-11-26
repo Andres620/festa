@@ -1,27 +1,28 @@
+import 'package:festa/domain/models/discoteca.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../config/provider/promo_provider.dart';
-import '../../domain/models/promocion.dart';
 
-class ListPromocionesScreen extends StatelessWidget {
-  const ListPromocionesScreen({super.key});
+import '../../config/provider/disco_provider.dart';
+
+class ListDiscosScreen extends StatelessWidget {
+  const ListDiscosScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final providerPromociones = Provider.of<PromoProvider>(context);
+    final providerDiscos = Provider.of<DiscoProvider>(context);
     return Scaffold(
       appBar: AppBar(
-            title: const Text('Promociones'),
+            title: const Text('Discotecas'),
             backgroundColor: const Color.fromARGB(255, 39, 39, 39)),
-      body:   FutureBuilder<List<Promocion>>(
-                future: providerPromociones.cuListPromos.getAllPromos(),
+      body:   FutureBuilder<List<Discoteca>>(
+                future: providerDiscos.cuListDisco.getAllDiscos(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return ListView.builder(
                         itemCount: snapshot.data!.length,
                         itemBuilder: ((context, index) {
-                          Promocion promotion = snapshot.data![index];
-                          return _buidCards(promotion);
+                          Discoteca disco = snapshot.data![index];
+                          return _buidCards(disco);
                         }));
                   } else if (snapshot.hasError) {
                     return Text('${snapshot.hasError}');
@@ -38,7 +39,7 @@ class ListPromocionesScreen extends StatelessWidget {
     );
   }
 
-  Widget _buidCards(Promocion promo) {
+  Widget _buidCards(Discoteca disco) {
     return Container(
         clipBehavior: Clip.none,
         height: 80,
@@ -52,13 +53,13 @@ class ListPromocionesScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  promo.descripcion,
+                  disco.nombre,
                   textAlign: TextAlign.left,
                   style: const TextStyle(
                       fontSize: 20, color: Color.fromARGB(255, 235, 238, 39)),
                 ),
                 Text(
-                  'Válido hasta: ${promo.fechaInicio.year} - ${promo.fechaInicio.month} - ${promo.fechaInicio.day}',
+                  'Horas: Abre a las ${disco.hora}',
                   textAlign: TextAlign.right,
                   style: const TextStyle(
                       fontSize: 15, color: Color.fromARGB(255, 219, 177, 9)),
