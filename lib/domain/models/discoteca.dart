@@ -6,6 +6,7 @@ import 'dart:convert';
 
 import 'package:festa/domain/models/promocion.dart';
 import 'package:festa/domain/models/usuario.dart';
+import 'package:mongo_dart/mongo_dart.dart';
 
 Discoteca discotecaFromJson(String str) => Discoteca.fromJson(json.decode(str));
 
@@ -17,23 +18,23 @@ class Discoteca {
         required this.nombre,
         required this.tipo,
         required this.hora,
-        required this.duenoDiscoteca,
+        this.duenoDiscoteca,
         this.promociones,
     });
 
-    final String? id;
+    final ObjectId? id;
     final String nombre;
     final String tipo;
     final String hora;
-    final Usuario duenoDiscoteca;
+    final ObjectId? duenoDiscoteca;
     final List<Promocion>? promociones;
 
     factory Discoteca.fromJson(Map<String, dynamic> json) => Discoteca(
-        id: json["_id"],
+        id: (json["_id"] as ObjectId),
         nombre: json["Nombre"],
         tipo: json["Tipo"],
         hora: json["Hora"],
-        duenoDiscoteca: Usuario.fromJson(json["DueñoDiscoteca"]),
+        duenoDiscoteca: json["DueñoDiscoteca"],
         promociones: List<Promocion>.from(json["Promociones"].map((x) => Promocion.fromJson(x))),
     );
 
@@ -42,7 +43,7 @@ class Discoteca {
         "Nombre": nombre,
         "Tipo": tipo,
         "Hora": hora,
-        "DueñoDiscoteca": duenoDiscoteca.toJson(),
+        "DueñoDiscoteca": duenoDiscoteca,
         "Promociones": List<dynamic>.from(promociones!.map((x) => x.toJson())),
     };
 }
