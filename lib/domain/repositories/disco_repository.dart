@@ -1,5 +1,5 @@
 import '../models/discoteca.dart';
 
 abstract class DiscoRepository{
-  Future<List<Discoteca>> getEvents();
+  Future<List<Discoteca>> getDiscos();
 }
