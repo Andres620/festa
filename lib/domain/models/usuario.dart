@@ -23,6 +23,7 @@ class Usuario {
     this.contrasena,
     required this.tipo,
     this.nivel,
+    this.puntos
   });
 
   final ObjectId? id;
@@ -34,6 +35,7 @@ class Usuario {
   final String? contrasena;
   final String tipo;
   final Nivel? nivel;
+  final int? puntos;
 
   factory Usuario.fromJson(Map<String, dynamic> json) => Usuario(
         id: json["_id"],
@@ -45,6 +47,7 @@ class Usuario {
         contrasena: json["Contraseña"],
         tipo: json["Tipo"],
         nivel: json["Nivel"] == null ? null : Nivel.fromJson(json["Nivel"]),
+        puntos: json["Puntos"] ?? json["Puntos"]
       );
 
   Map<String, dynamic> toJson() => {
@@ -57,5 +60,6 @@ class Usuario {
         "Contraseña": contrasena,
         "Tipo": tipo,
         "Nivel": nivel!.toJson(),
+        "Puntos": puntos
       };
 }
