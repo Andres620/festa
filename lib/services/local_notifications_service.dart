@@ -7,7 +7,6 @@ import '../data/datasources/mongodb/credentials.dart';
 import '../data/datasources/mongodb/events_mongodb.dart';
 import '../domain/models/evento.dart';
 
-
 // Instance of the plugin class
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();

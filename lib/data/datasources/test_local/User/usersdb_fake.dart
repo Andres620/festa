@@ -8,4 +8,11 @@ class Usersdbfake extends UserRepository {
     List<Usuario> response = UserGenerator(numberUsers: 3).createFiesteros();
     return response;
   }
+  
+  @override
+  Future<Usuario> getUser(String id) {
+    // TODO: implement getUser
+    throw UnimplementedError();
+  }
+  
 }
