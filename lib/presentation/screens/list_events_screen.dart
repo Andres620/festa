@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, prefer_final_fields, unused_field
 
+import 'package:festa/presentation/screens/events_in_calendar.dart';
 import 'package:festa/presentation/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +30,8 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
   List<Widget> _pages = [
     HomePage(),
     ListPromocionesScreen(),
-    UserLevelScreen()
+    UserLevelScreen(),
+    EventsInCalendarScreen()
   ];
 
   ///Is the main method of the view and is responsible for displaying the information of each event.
@@ -65,8 +67,8 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
               label: "Usuario",
               backgroundColor: Color.fromARGB(255, 235, 238, 39)),
           BottomNavigationBarItem(
-              icon: Icon(Icons.rocket_launch),
-              label: "Eventos Discoteca",
+              icon: Icon(Icons.calendar_month),
+              label: "Calendario",
               backgroundColor: Color.fromARGB(255, 235, 238, 39)),
         ],
       ),
@@ -97,8 +99,9 @@ class HomePage extends StatelessWidget {
     final providerEventos = Provider.of<EventProvider>(context);
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Eventos'),
-          backgroundColor: const Color.fromARGB(255, 39, 39, 39)),
+        title: const Text('Eventos'),
+        backgroundColor: const Color.fromARGB(255, 39, 39, 39),
+      ),
       body: FutureBuilder<List<Evento>>(
         future: providerEventos.cuListEvents.getAllEvents(),
         builder: (context, snapshot) {
