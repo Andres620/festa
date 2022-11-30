@@ -1,6 +1,8 @@
 import '../models/evento.dart';
 import '../repositories/eventos_por_discoteca_repository.dart';
 
+/// Control class that interacts with the event data
+/// repository to apply business logic.
 class CuListarEventosPorDiscoteca {
   String idDiscoteca;
 

@@ -3,3 +3,4 @@ const MONGO_URL = 'mongodb+srv://Andres:12345@jmanuel.riqwdtq.mongodb.net/Festa?
 const COLLECTION_EVENTS = "Eventos";
 const COLLECTION_PROMOTIONS = "Promocion";
 const COLLECTION_DiSCO = "Discoteca";
+const COLLECTION_USER = "Usuario";

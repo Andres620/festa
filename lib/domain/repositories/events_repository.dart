@@ -5,7 +5,7 @@ import '../models/evento.dart';
 abstract class EventsRepository{
 
   /// Gets the events that are hosted in the data repository 
-  /// to obtain them so that they can be manipulated as event type objects.
+  ///   to obtain them so that they can be manipulated as event type objects.
   Future<List<Evento>> getEvents();
   Future<Evento> getARandomEvent();
 }

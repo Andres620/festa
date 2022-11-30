@@ -33,6 +33,7 @@ dependencies:
   provider:
   flutter:
     sdk: flutter
+  
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -42,6 +43,7 @@ dependencies:
   timezone: ^0.9.0
   rxdart: ^0.27.7
   mongo_dart: ^0.8.0
+  table_calendar: ^3.0.8
 
 dev_dependencies:
   flutter_test:

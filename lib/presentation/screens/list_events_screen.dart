@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, prefer_final_fields, unused_field
 
+import 'package:festa/presentation/screens/events_in_calendar.dart';
 import 'package:festa/presentation/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,16 +10,16 @@ import '../../domain/models/evento.dart';
 import '../../services/local_notifications_service.dart';
 import 'list_discos_screen.dart';
 import 'list_promos_screen.dart';
+import 'user_levels_screen.dart';
 
 class ListEventsScreen extends StatefulWidget {
-  const ListEventsScreen({Key? key}): super(key: key);
+  const ListEventsScreen({Key? key}) : super(key: key);
 
   @override
   State<ListEventsScreen> createState() => _ListEventsScreenState();
 }
 
 class _ListEventsScreenState extends State<ListEventsScreen> {
-  
   @override
   void initState() {
     initialize();
@@ -30,7 +31,9 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
   List<Widget> _pages = [
     HomePage(),
     ListPromocionesScreen(),
-    ListDiscosScreen()
+    ListDiscosScreen(),
+    UserLevelScreen(),
+    EventsInCalendarScreen()
   ];
   ///Is the main method of the view and is responsible for displaying the information of each event.
   @override
@@ -54,7 +57,9 @@ class _ListEventsScreenState extends State<ListEventsScreen> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Eventos", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
             BottomNavigationBarItem(icon: Icon(Icons.attach_money), label: "Promociones", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
-            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "Discotecas", backgroundColor: Color.fromARGB(255, 235, 238, 39))
+            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "Discotecas", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
+            BottomNavigationBarItem(icon: Icon(Icons.account_circle),label: "Usuario", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
+            BottomNavigationBarItem(icon: Icon(Icons.calendar_month), label: "Calendario", backgroundColor: Color.fromARGB(255, 235, 238, 39))
           ],
         ),);
   }

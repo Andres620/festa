@@ -6,12 +6,15 @@ import 'package:provider/provider.dart';
 import 'config/provider/disco_provider.dart';
 import 'config/provider/event_provider.dart';
 import 'config/provider/promo_provider.dart';
+import 'config/provider/user_provider.dart';
 import 'data/datasources/mongodb/credentials.dart';
 import 'data/datasources/mongodb/disco_mongodb.dart';
 import 'data/datasources/mongodb/events_mongodb.dart';
 import 'data/datasources/mongodb/promotions_mongodb.dart';
+import 'data/datasources/mongodb/user_mongodb.dart';
 import 'domain/use_case/cu_list_events.dart';
 import 'domain/use_case/cu_list_promos.dart';
+import 'domain/use_case/user_use_case.dart';
 
 class Festa extends StatelessWidget {
   const Festa({super.key});
@@ -24,7 +27,8 @@ class Festa extends StatelessWidget {
               create: (context) => EventProvider(
                   cuListEvents: CuListEvents(EventsMongodb(
                       connectionString: MONGO_URL,
-                      collection: COLLECTION_EVENTS)))),
+                      collection: COLLECTION_EVENTS))
+              )),
           ChangeNotifierProvider(
               create: (context) => PromoProvider(
                 cuListPromos: CuListPromos(PromotionsMongodb())
@@ -33,7 +37,14 @@ class Festa extends StatelessWidget {
               create: (context) => DiscoProvider(
                   cuListDisco: CuListDisco(DiscoMongodb(
                       connectionString: MONGO_URL,
-                      collection: COLLECTION_DiSCO))))
+                      collection: COLLECTION_DiSCO))
+              )),
+          ChangeNotifierProvider(
+              create: (context) => UserProvider(
+                  userUseCase: UserUseCase(UserMongodb(
+                      connectionString: MONGO_URL,
+                      collection: COLLECTION_USER))
+              ))
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
