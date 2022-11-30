@@ -20,6 +20,7 @@ class Discoteca {
         required this.hora,
         this.duenoDiscoteca,
         this.promociones,
+        required this.imagen,
     });
 
     final ObjectId? id;
@@ -28,6 +29,7 @@ class Discoteca {
     final String hora;
     final ObjectId? duenoDiscoteca;
     final List<dynamic>? promociones;
+    final String imagen;
 
     factory Discoteca.fromJson(Map<String, dynamic> json) => Discoteca(
         id: (json["_id"] as ObjectId),
@@ -36,6 +38,7 @@ class Discoteca {
         hora: json["Hora"],
         duenoDiscoteca: json["DueñoDiscoteca"],
         promociones: json["Promociones"],
+        imagen: json["Imagen"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -45,6 +48,7 @@ class Discoteca {
         "Hora": hora,
         "DueñoDiscoteca": duenoDiscoteca,
         "Promociones": List<dynamic>.from(promociones!.map((x) => x)),
+        "Imagen": imagen,
     };
 }
 

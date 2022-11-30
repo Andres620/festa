@@ -50,7 +50,7 @@ class Festa extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             canvasColor: const Color.fromARGB(255, 50, 50, 50),
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.orange,
           ),
           home: const ListEventsScreen(),
         ));

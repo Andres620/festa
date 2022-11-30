@@ -14,7 +14,8 @@ class ClubGenerator {
       Discoteca newClub = Discoteca(
         nombre: 'Disco ${i.toString()}',
         tipo: 'Discoteca',
-        hora: '3:00 a.m'
+        hora: '3:00 a.m',
+        imagen: 'URL ${i.toString()}'
       );
       newClubs.add(newClub);
     }
