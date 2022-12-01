@@ -59,7 +59,7 @@ class EventsMongodb extends EventsRepository {
   }
   
   @override
-  Future<List<Evento>> getEventsByDisco(ObjectId discoId) async{
+  Future<List<Evento>> getEventsByDisco(ObjectId? discoId) async{
     try {
       List<Evento> eventsList = [];
       var db = await Db.create(connectionString);

@@ -10,5 +10,5 @@ abstract class EventsRepository{
   ///   to obtain them so that they can be manipulated as event type objects.
   Future<List<Evento>> getEvents();
   Future<Evento> getARandomEvent();
-  Future<List<Evento>> getEventsByDisco(ObjectId discoId);
+  Future<List<Evento>> getEventsByDisco(ObjectId? discoId);
 }

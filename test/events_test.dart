@@ -53,7 +53,7 @@ void main() {
 
     test('get an event by disco', () async {
     var eventdb = EventsMongodb(connectionString: MONGO_URL, collection: COLLECTION_EVENTS);
-    final discoId = ObjectId.fromHexString('63728041a1c8b7c18c2e53f1');
+    final discoId = ObjectId?.fromHexString('63728041a1c8b7c18c2e53f1');
     var response = await eventdb.getEventsByDisco(discoId);
     expect(response, isA<List<Evento>>());
   });

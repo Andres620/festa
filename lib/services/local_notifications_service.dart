@@ -106,7 +106,7 @@ Future<void> showIntervbalNotification() async {
   await flutterLocalNotificationsPlugin.periodicallyShow(
       1,
       'Titulo de notificacion',
-      'hola de saludo.',
+      'Descripcion',
       RepeatInterval.everyMinute,
       notificationDetails,
       androidAllowWhileIdle: true);

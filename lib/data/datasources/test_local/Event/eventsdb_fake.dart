@@ -23,7 +23,7 @@ class EventsdbFake extends EventsRepository {
   }
   
   @override
-  Future<List<Evento>> getEventsByDisco(ObjectId discoId) {
+  Future<List<Evento>> getEventsByDisco(ObjectId? discoId) {
     // TODO: implement getEventsByDisco
     throw UnimplementedError();
   }

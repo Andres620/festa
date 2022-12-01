@@ -1,4 +1,5 @@
 import 'package:festa/domain/exceptions/app_exception.dart';
+import 'package:mongo_dart/mongo_dart.dart';
 
 import '../models/evento.dart';
 import '../repositories/events_repository.dart';
@@ -16,6 +17,21 @@ class CuListEvents {
       List<Evento> eventsList = await _eventsRepository.getEvents();
       if (eventsList.isEmpty) {
         throw AppException(errorMessage: 'There are no events at this time.');
+      }
+      List<Evento> sortedByDate = eventsList.toList();
+      sortedByDate.sort((a, b) => a.fecha.compareTo(b.fecha));
+
+      return sortedByDate;
+    } catch (e) {
+      throw AppException(errorMessage: e.toString());
+    }
+  }
+
+  Future<List<Evento>> getEventsByDisco(ObjectId? discoId) async{
+    try {
+      List<Evento> eventsList = await _eventsRepository.getEventsByDisco(discoId);
+      if (eventsList.isEmpty) {
+        return eventsList;
       }
       List<Evento> sortedByDate = eventsList.toList();
       sortedByDate.sort((a, b) => a.fecha.compareTo(b.fecha));
