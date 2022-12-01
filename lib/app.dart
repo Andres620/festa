@@ -1,5 +1,5 @@
 import 'package:festa/domain/use_case/cu_list_disco.dart';
-import 'package:festa/presentation/screens/list_events_screen.dart';
+import 'package:festa/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -52,7 +52,7 @@ class Festa extends StatelessWidget {
             canvasColor: const Color.fromARGB(255, 50, 50, 50),
             primarySwatch: Colors.orange,
           ),
-          home: const ListEventsScreen(),
+          home: const HomeScreen(),
         ));
   }
 }
