@@ -12,7 +12,8 @@ class ListPromocionesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
             title: const Text('Promociones'),
-            backgroundColor: const Color.fromARGB(255, 39, 39, 39)),
+            foregroundColor: const Color.fromARGB(255, 245, 244, 244),
+            backgroundColor: const Color.fromARGB(255, 103, 58, 183)),
       body:   FutureBuilder<List<Promocion>>(
                 future: providerPromociones.cuListPromos.getAllPromos(),
                 builder: (context, snapshot) {

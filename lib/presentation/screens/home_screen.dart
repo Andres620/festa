@@ -52,11 +52,11 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           currentIndex: _actualPage,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Eventos", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
-            BottomNavigationBarItem(icon: Icon(Icons.attach_money), label: "Promociones", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
-            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "Discotecas", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
-            BottomNavigationBarItem(icon: Icon(Icons.account_circle),label: "Usuario", backgroundColor: Color.fromARGB(255, 235, 238, 39)),
-            BottomNavigationBarItem(icon: Icon(Icons.calendar_month), label: "Calendario", backgroundColor: Color.fromARGB(255, 235, 238, 39))
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Eventos", backgroundColor: Color.fromARGB(255, 103, 58, 183)),
+            BottomNavigationBarItem(icon: Icon(Icons.attach_money), label: "Promociones", backgroundColor: Color.fromARGB(255, 103, 58, 183)),
+            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "Discotecas", backgroundColor: Color.fromARGB(2255, 103, 58, 183)),
+            BottomNavigationBarItem(icon: Icon(Icons.account_circle),label: "Usuario", backgroundColor: Color.fromARGB(255, 103, 58, 183)),
+            BottomNavigationBarItem(icon: Icon(Icons.calendar_month), label: "Calendario", backgroundColor: Color.fromARGB(255, 103, 58, 183))
           ],
         ),);
   }

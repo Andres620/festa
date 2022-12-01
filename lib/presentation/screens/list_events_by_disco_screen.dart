@@ -21,16 +21,20 @@ class ListEventsByDiscoScreen extends StatelessWidget {
         future: providerEventos.cuListEvents.getEventsByDisco(discoId),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return snapshot.data!.isNotEmpty? ListView.builder(
-                shrinkWrap: true,
-                itemCount: snapshot.data!.length,
-                itemBuilder: ((context, index) {
-                  Evento event = snapshot.data![index];
-                  return _buidCards(event);
-                }))
+            return snapshot.data!.isNotEmpty
+                ? ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: ((context, index) {
+                      Evento event = snapshot.data![index];
+                      return _buidCards(event);
+                    }))
                 : const Text("La discoteca no tiene eventos en este momento");
           } else if (snapshot.hasError) {
-            return Text('${snapshot.hasError}');
+            return Text('${snapshot.hasError}',
+                textAlign: TextAlign.justify,
+                style: const TextStyle(
+                    fontSize: 18.0, color: Color.fromARGB(255, 235, 238, 39)));
           }
           return const Center.Center(
             child: SizedBox(

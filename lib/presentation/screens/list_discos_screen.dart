@@ -14,7 +14,8 @@ class ListDiscosScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           title: const Text('Discotecas'),
-          backgroundColor: const Color.fromARGB(255, 39, 39, 39)),
+          foregroundColor: const Color.fromARGB(255, 245, 244, 244),
+          backgroundColor: const Color.fromARGB(255, 103, 58, 183)),
       body: FutureBuilder<List<Discoteca>>(
         future: providerDiscos.cuListDisco.getAllDiscos(),
         builder: (context, snapshot) {
