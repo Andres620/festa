@@ -46,7 +46,7 @@ class _EventsInCalendarScreen extends State<EventsInCalendarScreen> {
       appBar: AppBar(
         title: const Text('Eventos por calendario'),
         foregroundColor: const Color.fromARGB(255, 245, 244, 244),
-        backgroundColor: const Color.fromARGB(255, 39, 39, 39),
+        backgroundColor: const Color.fromARGB(255, 103, 58, 183),
       ),
       body: content(),
     );

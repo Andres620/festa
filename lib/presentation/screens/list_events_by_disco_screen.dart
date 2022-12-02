@@ -14,11 +14,11 @@ class ListEventsByDiscoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final providerEventos = Provider.of<EventProvider>(context);
+    final eventsProvider = Provider.of<EventProvider>(context);
     return SingleChildScrollView(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       FutureBuilder<List<Evento>>(
-        future: providerEventos.cuListEvents.getEventsByDisco(discoId),
+        future: eventsProvider.cuListEvents.getEventsByDisco(discoId),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return snapshot.data!.isNotEmpty
