@@ -37,7 +37,6 @@ class DiscoMongodb extends DiscoRepository {
       List<Promocion> promoList = [];
       var db = await Db.create(connectionString);
       await db.open();
-      print("entrada 1");
       final pipeline = AggregationPipelineBuilder()
           .addStage(Match(where.eq("_id", discoId).map['\$query']))
           .addStage(Lookup(

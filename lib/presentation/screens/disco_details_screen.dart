@@ -1,3 +1,4 @@
+import 'package:festa/presentation/screens/list_promotions_by_disco_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:provider/provider.dart';
@@ -19,24 +20,49 @@ class DiscoDetailsScreen extends StatelessWidget {
           title: Text(disco.nombre),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(3.0),
           child: SingleChildScrollView(
-              child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Image.network(
-              disco.imagen,
-              height: 500,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Horas: Abre a las ${disco.hora}',
-                textAlign: TextAlign.justify,
-                style: const TextStyle(
-                    fontSize: 22.0, fontStyle: FontStyle.italic),
-              ),
-            ),
-            ListEventsByDiscoScreen(disco.id)
-          ])),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                Image.network(
+                  disco.imagen,
+                  height: 500,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Text(
+                    'Horas: Abre a las ${disco.hora}',
+                    textAlign: TextAlign.justify,
+                    style: const TextStyle(
+                        fontSize: 22.0, fontStyle: FontStyle.italic),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.all(3.0),
+                  margin: const EdgeInsets.only(top: 20.0, bottom: 4.0),
+                  child: const Text(
+                    'Eventos',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontSize: 22.0),
+                  ),
+                ),
+                ListEventsByDiscoScreen(disco.id),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.all(3.0),
+                  margin: const EdgeInsets.only(top: 20.0, bottom: 4.0),
+                  child: const Text(
+                    'Promociones',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontSize: 22.0),
+                  ),
+                ),
+                ListPromotionsByDiscoScreen(disco.id)
+              ])),
         ));
   }
 }

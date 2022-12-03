@@ -49,7 +49,7 @@ class Festa extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            canvasColor: const Color.fromARGB(255, 50, 50, 50),
+            canvasColor: const Color.fromARGB(237, 237, 237, 237),
             primarySwatch: Colors.deepPurple,
           ),
           home: const HomeScreen(),
