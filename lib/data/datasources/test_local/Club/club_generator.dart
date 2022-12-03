@@ -12,11 +12,10 @@ class ClubGenerator {
     List<Discoteca> newClubs = [];
     for (var i = 0; i < numberClubs; i++) {
       Discoteca newClub = Discoteca(
-        id: i.toString(),
         nombre: 'Disco ${i.toString()}',
         tipo: 'Discoteca',
         hora: '3:00 a.m',
-        duenoDiscoteca: _createUser(),
+        imagen: 'URL ${i.toString()}'
       );
       newClubs.add(newClub);
     }

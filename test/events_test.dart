@@ -5,6 +5,7 @@ import 'package:festa/domain/exceptions/app_exception.dart';
 import 'package:festa/domain/models/evento.dart';
 import 'package:festa/domain/use_case/cu_list_events.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mongo_dart/mongo_dart.dart';
 
 void main() {
   test('Make a query to the fake repository from domain layer and gets data',
@@ -48,5 +49,12 @@ void main() {
     var eventdb = EventsMongodb(connectionString: MONGO_URL, collection: COLLECTION_EVENTS);
     var response = await eventdb.getARandomEvent() ;
     expect(response, isA<Evento>());
+  });
+
+    test('get an event by disco', () async {
+    var eventdb = EventsMongodb(connectionString: MONGO_URL, collection: COLLECTION_EVENTS);
+    final discoId = ObjectId?.fromHexString('63728041a1c8b7c18c2e53f1');
+    var response = await eventdb.getEventsByDisco(discoId);
+    expect(response, isA<List<Evento>>());
   });
 }

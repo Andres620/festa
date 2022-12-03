@@ -17,6 +17,7 @@ class Evento {
     required this.nombre,
     required this.descripcion,
     required this.tipo,
+    required this.imagen,
     required this.fecha,
     this.organizadorEventos,
     this.discoteca,
@@ -27,6 +28,7 @@ class Evento {
   final String nombre;
   final String descripcion;
   final String tipo;
+  final String imagen;
   final DateTime fecha;
   final ObjectId? organizadorEventos;
   final List<dynamic>? discoteca;
@@ -39,6 +41,7 @@ class Evento {
         nombre: json["Nombre"],
         descripcion: json["Descripcion"],
         tipo: json["Tipo"],
+        imagen: json["Imagen"],
         fecha: json["Fecha"],
         organizadorEventos: json["OrganizadorEventos"],
         discoteca: json["Discoteca"],
@@ -52,6 +55,7 @@ class Evento {
         "Nombre": nombre,
         "Descripcion": descripcion,
         "Tipo": tipo,
+        "Imagen": imagen,
         "Fecha": fecha.toIso8601String(),
         "OrganizadorEventos": organizadorEventos,
         "Discoteca": List<dynamic>.from(discoteca!.map((x) => x)),

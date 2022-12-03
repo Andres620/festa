@@ -57,4 +57,25 @@ class EventsMongodb extends EventsRepository {
               'Failed to establish connection with data repository. ${e.toString()}');
     }
   }
+  
+  @override
+  Future<List<Evento>> getEventsByDisco(ObjectId? discoId) async{
+    try {
+      List<Evento> eventsList = [];
+      var db = await Db.create(connectionString);
+      await db.open();
+      var eventsResponse =
+          await db.collection(collection).find(where.eq("Discoteca", discoId)).toList();
+
+      for (var eventMap in eventsResponse) {
+        eventsList.add(Evento.fromJson(eventMap));
+      }
+      db.close();
+      return eventsList;
+    } catch (e) {
+      throw AppException(
+          errorMessage:
+              'Failed to establish connection with data repository. ${e.toString()}');
+    }
+  }
 }
