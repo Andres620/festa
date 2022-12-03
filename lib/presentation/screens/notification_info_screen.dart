@@ -1,16 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
-import '../../domain/models/evento.dart';
+class NotificationInfoScreen extends StatelessWidget {
+  const NotificationInfoScreen({
+    Key? key,
+    required this.payload,
+  }) : super(key: key);
 
-class EventDetailsScreen extends StatelessWidget {
-  final Evento event;
-  const EventDetailsScreen(this.event, {super.key});
+  final String payload;
 
   @override
   Widget build(BuildContext context) {
+    var event = json.decode(payload);
     return Scaffold(
         appBar: AppBar(
-          title: Text(event.nombre),
+          title: Text(event["Nombre"]),
         ),
         body: Padding(
           padding: const EdgeInsets.all(3.0),
@@ -19,13 +24,13 @@ class EventDetailsScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                 Image.network(
-                  event.imagen,
+                  event["Imagen"],
                   height: 500,
                 ),
                 Container(
                   padding: const EdgeInsets.all(3.0),
                   child: Text(
-                    event.tipo,
+                    event["Tipo"],
                     textAlign: TextAlign.justify,
                     style: const TextStyle(fontSize: 22.0),
                   ),
@@ -33,7 +38,7 @@ class EventDetailsScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(3.0),
                   child: Text(
-                    event.descripcion,
+                    event["Descripcion"],
                     textAlign: TextAlign.justify,
                     style: const TextStyle(
                         fontSize: 22.0, fontStyle: FontStyle.italic),
@@ -43,7 +48,7 @@ class EventDetailsScreen extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.all(3.0),
                   child: Text(
-                    'Fecha: ${event.fecha.year} - ${event.fecha.month} - ${event.fecha.day}',
+                    'Fecha: ${event["fecha"]}',
                     textAlign: TextAlign.left,
                     style: const TextStyle(fontSize: 19.0),
                   ),

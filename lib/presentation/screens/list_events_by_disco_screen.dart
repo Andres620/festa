@@ -57,6 +57,7 @@ class ListEventsByDiscoScreen extends StatelessWidget {
                 title: Text(event.nombre),
                 subtitle: Text(
                     'Fecha: ${event.fecha.year} - ${event.fecha.month} - ${event.fecha.day}'),
+                leading: Image.network(event.imagen),
                 trailing: const Icon(Icons.arrow_forward_rounded))),
         onTap: () {
           Navigator.push(

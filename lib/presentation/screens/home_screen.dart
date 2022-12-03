@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, prefer_final_fields, unused_field
 
 import 'package:festa/presentation/screens/events_in_calendar.dart';
-import 'package:festa/presentation/screens/second_screen.dart';
+import 'package:festa/presentation/screens/notification_info_screen.dart';
 import 'package:flutter/material.dart';
 import '../../services/local_notifications_service.dart';
 import 'list_discos_screen.dart';
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Eventos", backgroundColor: Color.fromARGB(255, 103, 58, 183)),
             BottomNavigationBarItem(icon: Icon(Icons.attach_money), label: "Promociones", backgroundColor: Color.fromARGB(255, 103, 58, 183)),
-            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "Discotecas", backgroundColor: Color.fromARGB(2255, 103, 58, 183)),
+            BottomNavigationBarItem(icon: Icon(Icons.rocket_launch), label: "Discotecas", backgroundColor: Color.fromARGB(225, 103, 58, 183)),
             BottomNavigationBarItem(icon: Icon(Icons.account_circle),label: "Usuario", backgroundColor: Color.fromARGB(255, 103, 58, 183)),
             BottomNavigationBarItem(icon: Icon(Icons.calendar_month), label: "Calendario", backgroundColor: Color.fromARGB(255, 103, 58, 183))
           ],
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: ((context) => SecondScreen(payload: payload))));
+              builder: ((context) => NotificationInfoScreen(payload: payload))));
     }
   }
 }

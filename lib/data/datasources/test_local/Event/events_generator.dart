@@ -16,6 +16,7 @@ class EventsGenerator {
           nombre: "Evento ${i.toString()}",
           descripcion: "Este es el evento ${i.toString()} ",
           tipo: "Concierto ${i.toString()}",
+          imagen: "",
           fecha: now);
 
       newEvents.add(newEvent);
