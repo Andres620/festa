@@ -7,6 +7,7 @@ import 'package:flutter/src/widgets/basic.dart' as Center;
 
 import '../../config/provider/event_provider.dart';
 import '../../domain/models/evento.dart';
+import 'event_details_screen.dart';
 
 class ListEventsByDiscoScreen extends StatelessWidget {
   final ObjectId? discoId;
@@ -27,7 +28,7 @@ class ListEventsByDiscoScreen extends StatelessWidget {
                     itemCount: snapshot.data!.length,
                     itemBuilder: ((context, index) {
                       Evento event = snapshot.data![index];
-                      return _buidCards(event);
+                      return _buidCards(event, context);
                     }))
                 : const Text("La discoteca no tiene eventos en este momento");
           } else if (snapshot.hasError) {
@@ -49,12 +50,19 @@ class ListEventsByDiscoScreen extends StatelessWidget {
   }
 
   /// Builds the structure to display the information of an event.
-  Widget _buidCards(Evento event) {
-    return Card(
-        child: ListTile(
-            title: Text(event.nombre),         
-            subtitle: Text(
-                'Fecha: ${event.fecha.year} - ${event.fecha.month} - ${event.fecha.day}'),
-            trailing: const Icon(Icons.arrow_forward_rounded)));
+  Widget _buidCards(Evento event, context) {
+    return InkWell(
+        child: Card(
+            child: ListTile(
+                title: Text(event.nombre),
+                subtitle: Text(
+                    'Fecha: ${event.fecha.year} - ${event.fecha.month} - ${event.fecha.day}'),
+                trailing: const Icon(Icons.arrow_forward_rounded))),
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => EventDetailsScreen(event)));
+        });
   }
 }

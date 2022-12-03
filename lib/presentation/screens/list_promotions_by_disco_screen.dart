@@ -1,6 +1,7 @@
 // ignore_for_file: implementation_imports, library_prefixes
 
 import 'package:festa/domain/models/promocion.dart';
+import 'package:festa/presentation/screens/promotion_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:provider/provider.dart';
@@ -28,9 +29,10 @@ class ListPromotionsByDiscoScreen extends StatelessWidget {
                     itemCount: snapshot.data!.length,
                     itemBuilder: ((context, index) {
                       Promocion promotion = snapshot.data![index];
-                      return _buidCards(promotion);
+                      return _buidCards(promotion, context);
                     }))
-                : const Text("La discoteca no tiene eventos en este momento");
+                : const Text(
+                    "La discoteca no tiene promociones en este momento");
           } else if (snapshot.hasError) {
             return Text('${snapshot.hasError}',
                 textAlign: TextAlign.justify,
@@ -50,13 +52,20 @@ class ListPromotionsByDiscoScreen extends StatelessWidget {
   }
 
   /// Builds the structure to display the information of an event.
-  Widget _buidCards(Promocion promotion) {
-    return Card(
-        child: ListTile(
-            title: Text(promotion.descripcion),
-            subtitle: Text(
-                'Válido hasta: ${promotion.fechaFin.year} - ${promotion.fechaFin.month} - ${promotion.fechaFin.day}'),
-            leading: Image.network(promotion.imagen),
-            trailing: const Icon(Icons.arrow_forward_rounded)));
+  Widget _buidCards(Promocion promotion, context) {
+    return InkWell(
+        child: Card(
+            child: ListTile(
+                title: Text(promotion.descripcion),
+                subtitle: Text(
+                    'Válido hasta: ${promotion.fechaFin.year} - ${promotion.fechaFin.month} - ${promotion.fechaFin.day}'),
+                leading: Image.network(promotion.imagen),
+                trailing: const Icon(Icons.arrow_forward_rounded))),
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => PromotionDetailsScreen(promotion)));
+        });
   }
 }
