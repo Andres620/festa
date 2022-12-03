@@ -8,7 +8,7 @@ void main(){
   test('get all promotions - promotions_mongodb', () async {
     var promotionsdb = PromotionsMongodb();
     var response = await promotionsdb.getPromociones() ;
-    expect(response.length, 2);
+    expect(response, isA<List<Promocion>>());
   });
 
   test('json to promotion', () {

@@ -7,6 +7,7 @@ import '../../services/local_notifications_service.dart';
 import 'list_discos_screen.dart';
 import 'list_events_screen.dart';
 import 'list_promos_screen.dart';
+import 'map_screen.dart';
 import 'user_levels_screen.dart';
 
 class HomeScreen extends StatefulWidget {
