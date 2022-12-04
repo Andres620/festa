@@ -44,6 +44,8 @@ dependencies:
   rxdart: ^0.27.7
   mongo_dart: ^0.8.0
   table_calendar: ^3.0.8
+  flutter_map: ^3.0.0
+  latlong2: ^0.8.1
 
 dev_dependencies:
   flutter_test:

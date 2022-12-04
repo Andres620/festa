@@ -15,7 +15,10 @@ class ClubGenerator {
         nombre: 'Disco ${i.toString()}',
         tipo: 'Discoteca',
         hora: '3:00 a.m',
-        imagen: 'URL ${i.toString()}'
+        imagen: 'URL ${i.toString()}',
+        direccion: '',
+        latitud: 0.0,
+        longitud: 0.0
       );
       newClubs.add(newClub);
     }
