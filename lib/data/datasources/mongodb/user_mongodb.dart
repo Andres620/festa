@@ -1,8 +1,10 @@
 import 'package:mongo_dart/mongo_dart.dart';
+
 import '../../../domain/exceptions/app_exception.dart';
 import '../../../domain/models/usuario.dart';
 import '../../../domain/repositories/user_repository.dart';
 
+/// Class that implements the users contract interacting with mongo atlas.
 class UserMongodb extends UserRepository {
   final String connectionString;
   final String collection;

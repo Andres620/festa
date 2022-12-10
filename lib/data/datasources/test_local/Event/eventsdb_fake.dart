@@ -1,8 +1,8 @@
-import 'package:festa/data/datasources/test_local/Event/events_generator.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
 import '../../../../domain/models/evento.dart';
 import '../../../../domain/repositories/events_repository.dart';
+import 'events_generator.dart';
 
 /// Class that implements the evetns contract interacting with fake db 
 class EventsdbFake extends EventsRepository {

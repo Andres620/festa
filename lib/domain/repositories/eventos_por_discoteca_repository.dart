@@ -12,8 +12,4 @@ abstract class EventosPorDiscotecaRepository {
   /// Gets the events that are hosted in the data repository
   /// to obtain them so that they can be manipulated as event type objects.
   Future<List<Evento>> getEventosPorDiscoteca();
-  //Future<Usuario?> getUser({String id});
-  //Future<void> insertUser(Usuario user);
-  //Future<void> updateUser(Usuario user);
-  // Future<void> delete(String id);
 }

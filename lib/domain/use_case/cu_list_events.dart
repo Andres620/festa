@@ -1,6 +1,6 @@
-import 'package:festa/domain/exceptions/app_exception.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
+import '../exceptions/app_exception.dart';
 import '../models/evento.dart';
 import '../repositories/events_repository.dart';
 
@@ -10,7 +10,7 @@ class CuListEvents {
   final EventsRepository _eventsRepository;
   CuListEvents(this._eventsRepository);
 
-  /// Gets all events from a repository and returns them 
+  /// Gets all events from a repository and returns them
   /// to be used as an object of type events.
   Future<List<Evento>> getAllEvents() async {
     try {
@@ -27,9 +27,12 @@ class CuListEvents {
     }
   }
 
-  Future<List<Evento>> getEventsByDisco(ObjectId? discoId) async{
+  //From a disco it gets all the events of that discotheque to be
+  //able to order them by date and send them to the presentation layer.
+  Future<List<Evento>> getEventsByDisco(ObjectId? discoId) async {
     try {
-      List<Evento> eventsList = await _eventsRepository.getEventsByDisco(discoId);
+      List<Evento> eventsList =
+          await _eventsRepository.getEventsByDisco(discoId);
       if (eventsList.isEmpty) {
         return eventsList;
       }

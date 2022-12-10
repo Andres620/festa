@@ -1,6 +1,7 @@
 import '../../../../domain/models/nivel.dart';
 import '../../../../domain/models/usuario.dart';
 
+/// Class works as a fake user repository.
 class UserGenerator {
   int numberUsers;
 

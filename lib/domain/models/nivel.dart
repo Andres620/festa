@@ -1,3 +1,4 @@
+/// Entity class that allows interaction with users levels.
 class Nivel {
   Nivel({
     required this.nombre,

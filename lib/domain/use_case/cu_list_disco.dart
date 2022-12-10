@@ -1,10 +1,12 @@
-import 'package:festa/domain/models/discoteca.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
 import '../exceptions/app_exception.dart';
+import '../models/discoteca.dart';
 import '../models/promocion.dart';
 import '../repositories/disco_repository.dart';
 
+/// Control class that interacts with the dicos data repository
+/// to apply business logic.
 class CuListDisco {
   final DiscoRepository _discoRepository;
 
@@ -14,6 +16,7 @@ class CuListDisco {
     return _discoRepository.getDiscos();
   }
 
+  //
   Future<List<Promocion>> getPromosByDiscos(ObjectId? discoId) async {
     try {
       List<Promocion> promotionsList =
