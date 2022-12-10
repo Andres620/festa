@@ -13,7 +13,7 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 
 BehaviorSubject<String?> onNotificationClick = BehaviorSubject();
 
-///initializes the notification service with the necessary 
+///initializes the notification service with the necessary
 ///configurations and plugins for android and for iOS
 Future<void> initialize() async {
   tz.initializeTimeZones();
@@ -34,15 +34,16 @@ Future<void> initialize() async {
   );
 
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-    onDidReceiveNotificationResponse: onDidReceiveNotificationResponse);
+      onDidReceiveNotificationResponse: onDidReceiveNotificationResponse);
   showIntervbalNotificationPayload();
 }
 
-void onDidReceiveNotificationResponse(NotificationResponse notificationResponse) async {
-    final String? payload = notificationResponse.payload;
-    if (notificationResponse.payload != null) {
-      onNotificationClick.add(payload);
-    }
+void onDidReceiveNotificationResponse(
+    NotificationResponse notificationResponse) async {
+  final String? payload = notificationResponse.payload;
+  if (notificationResponse.payload != null) {
+    onNotificationClick.add(payload);
+  }
 }
 
 void onDidReceiveLocalNotification(
@@ -69,13 +70,13 @@ Future<NotificationDetails> _notificationDetails() async {
 }
 
 /// It is used to display a notification only once.
-/// It is used when a new event is added to the database for immediate notification. 
+/// It is used when a new event is added to the database for immediate notification.
 Future<void> showNotification(
     // {required int id,
     // required String title,
     // required String body,
     // required int seconds}
-) async {
+    ) async {
   final notificationDetails = await _notificationDetails();
   await flutterLocalNotificationsPlugin.show(
       1, 'Titulo de notificacion', 'hola de saludo.', notificationDetails);
@@ -116,7 +117,8 @@ Future<void> showIntervbalNotification() async {
 /// They are used to notify and open the event view.
 Future<void> showIntervbalNotificationPayload() async {
   final notificationDetails = await _notificationDetails();
-  var eventsdb = EventsMongodb(connectionString: MONGO_URL, collection: COLLECTION_EVENTS);
+  var eventsdb =
+      EventsMongodb(connectionString: MONGO_URL, collection: COLLECTION_EVENTS);
   var event = await eventsdb.getARandomEvent();
   var payload = eventoToJson(event);
   await flutterLocalNotificationsPlugin.periodicallyShow(
@@ -128,5 +130,3 @@ Future<void> showIntervbalNotificationPayload() async {
       notificationDetails,
       androidAllowWhileIdle: true);
 }
-
-

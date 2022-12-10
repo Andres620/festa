@@ -1,7 +1,8 @@
-import 'package:festa/data/datasources/test_local/Event/events_generator.dart';
+
 
 import '../../../../domain/models/evento.dart';
 import '../../../../domain/repositories/eventos_por_discoteca_repository.dart';
+import 'events_generator.dart';
 
 /// Class that implements the events contract interacting with the fake db
 /// This class filters the events created by the id of a disco.

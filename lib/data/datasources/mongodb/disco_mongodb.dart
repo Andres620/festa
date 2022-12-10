@@ -1,10 +1,11 @@
-import 'package:festa/domain/models/discoteca.dart';
-import 'package:festa/domain/repositories/disco_repository.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
 import '../../../domain/exceptions/app_exception.dart';
+import '../../../domain/models/discoteca.dart';
 import '../../../domain/models/promocion.dart';
+import '../../../domain/repositories/disco_repository.dart';
 
+/// Class that implements the Disco contract interacting with mongo atlas.
 class DiscoMongodb extends DiscoRepository {
   final String connectionString;
   final String collection;
