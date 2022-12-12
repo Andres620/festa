@@ -27,24 +27,20 @@ class Festa extends StatelessWidget {
               create: (context) => EventProvider(
                   cuListEvents: CuListEvents(EventsMongodb(
                       connectionString: MONGO_URL,
-                      collection: COLLECTION_EVENTS))
-              )),
+                      collection: COLLECTION_EVENTS)))),
           ChangeNotifierProvider(
               create: (context) => PromoProvider(
-                cuListPromos: CuListPromos(PromotionsMongodb())
-              )),
+                  cuListPromos: CuListPromos(PromotionsMongodb()))),
           ChangeNotifierProvider(
               create: (context) => DiscoProvider(
                   cuListDisco: CuListDisco(DiscoMongodb(
                       connectionString: MONGO_URL,
-                      collection: COLLECTION_DiSCO))
-              )),
+                      collection: COLLECTION_DiSCO)))),
           ChangeNotifierProvider(
               create: (context) => UserProvider(
                   userUseCase: UserUseCase(UserMongodb(
                       connectionString: MONGO_URL,
-                      collection: COLLECTION_USER))
-              ))
+                      collection: COLLECTION_USER))))
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
