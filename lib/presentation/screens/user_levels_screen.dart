@@ -12,7 +12,7 @@ class UserLevelScreen extends StatelessWidget {
     final providerUser = Provider.of<UserProvider>(context);
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Usuario'),
+          title: const Text('Perfil de usuario'),
           foregroundColor: const Color.fromARGB(255, 245, 244, 244),
           backgroundColor: const Color.fromARGB(255, 103, 58, 183)),
       body: FutureBuilder<Usuario>(
@@ -45,44 +45,54 @@ class UserLevelScreen extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               child: const Icon(
                 Icons.account_box_outlined,
-                color: Color.fromARGB(249, 219, 216, 216),
+                color: Color.fromARGB(248, 0, 0, 0),
                 size: 100,
               ),
             ),
             Expanded(
                 child: Container(
+              alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
               child: Text('${user.nombre} - ${user.edad} años',
                   style: const TextStyle(
                     fontSize: 30,
-                    color: Color.fromARGB(255, 201, 201, 199),
+                    color: Color.fromARGB(255, 10, 10, 10),
                   )),
-            ))
+            )),
           ],
         ),
         Container(
           height: 5,
-          color: const Color.fromARGB(255, 235, 238, 39),
+          color: Color.fromARGB(255, 22, 255, 1),
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               padding: const EdgeInsets.all(10),
               child: const Text('Nivel: ',
                   style: TextStyle(
                     fontSize: 25,
-                    color: Color.fromARGB(255, 250, 200, 0),
+                    color: Color.fromARGB(255, 0, 255, 21),
                   )),
             ),
             Container(
               padding: const EdgeInsets.all(5),
               child: Text('${user.nivel!.nombre} ',
                   style: const TextStyle(
-                    fontSize: 35,
-                    color: Color.fromARGB(255, 201, 201, 199),
+                    fontSize: 25,
+                    color: Color.fromARGB(255, 0, 0, 0),
                   )),
             )
           ],
+        ),
+        Container(
+          padding: const EdgeInsets.all(10),
+          child: const Icon(
+            Icons.looks_4_outlined,
+            color: Color.fromARGB(248, 0, 0, 0),
+            size: 100,
+          ),
         ),
         Container(
           padding: const EdgeInsets.all(10),
@@ -90,10 +100,18 @@ class UserLevelScreen extends StatelessWidget {
             'Puntos: ${user.puntos} de ${user.nivel!.puntos}',
             style: const TextStyle(
               fontSize: 25,
-              color: Color.fromARGB(255, 201, 201, 199),
+              color: Color.fromARGB(255, 8, 8, 8),
             ),
           ),
-        )
+        ),
+        Container(
+          padding: const EdgeInsets.all(20),
+          child: const Icon(
+            Icons.facebook,
+            color: Color.fromARGB(248, 19, 3, 253),
+            size: 75,
+          ),
+        ),
       ],
     );
   }
