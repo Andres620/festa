@@ -4,25 +4,28 @@ import '../../../../domain/models/usuario.dart';
 import '../User/user_generator.dart';
 
 class ClubGenerator {
-  int number_clubs;
+  int numberClubs;
 
-  ClubGenerator({required this.number_clubs});
+  ClubGenerator({required this.numberClubs});
 
   List<Discoteca> createClubs() {
     List<Discoteca> newClubs = [];
-    for (var i = 0; i < this.number_clubs; i++) {
+    for (var i = 0; i < numberClubs; i++) {
       Discoteca newClub = Discoteca(
-        id: i.toString(),
         nombre: 'Disco ${i.toString()}',
         tipo: 'Discoteca',
         hora: '3:00 a.m',
-        duenoDiscoteca: _createUser(),
+        imagen: 'URL ${i.toString()}',
+        direccion: '',
+        latitud: 0.0,
+        longitud: 0.0
       );
+      newClubs.add(newClub);
     }
     return newClubs;
   }
 
   Usuario _createUser (){
-    return UserGenerator(number_users: 1).createClubOwner()[0];
+    return UserGenerator(numberUsers: 1).createClubOwner()[0];
   }
 }

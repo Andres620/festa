@@ -160,6 +160,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.0"
+  flutter_map:
+    dependency: "direct main"
+    description:
+      name: flutter_map
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -179,6 +186,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.2"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.17.0"
   js:
     dependency: transitive
     description:
@@ -193,6 +207,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.7.0"
+  latlong2:
+    dependency: "direct main"
+    description:
+      name: latlong2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.1"
   lints:
     dependency: transitive
     description:
@@ -200,6 +221,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  lists:
+    dependency: transitive
+    description:
+      name: lists
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   logging:
     dependency: transitive
     description:
@@ -228,6 +256,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
+  mgrs_dart:
+    dependency: transitive
+    description:
+      name: mgrs_dart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   mongo_dart:
     dependency: "direct main"
     description:
@@ -298,6 +333,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.6.2"
+  polylabel:
+    dependency: transitive
+    description:
+      name: polylabel
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   pool:
     dependency: transitive
     description:
@@ -305,6 +347,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.1"
+  positioned_tap_detector_2:
+    dependency: transitive
+    description:
+      name: positioned_tap_detector_2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
   power_extensions:
     dependency: transitive
     description:
@@ -319,6 +368,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  proj4dart:
+    dependency: transitive
+    description:
+      name: proj4dart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   provider:
     dependency: "direct main"
     description:
@@ -354,6 +410,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  simple_gesture_detector:
+    dependency: transitive
+    description:
+      name: simple_gesture_detector
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -387,6 +450,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
+  table_calendar:
+    dependency: "direct main"
+    description:
+      name: table_calendar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.8"
   term_glyph:
     dependency: transitive
     description:
@@ -408,6 +478,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.0"
+  tuple:
+    dependency: transitive
+    description:
+      name: tuple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   typed_data:
     dependency: transitive
     description:
@@ -415,6 +492,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
+  unicode:
+    dependency: transitive
+    description:
+      name: unicode
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.1"
   unorm_dart:
     dependency: transitive
     description:
@@ -443,6 +527,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.5"
+  wkt_parser:
+    dependency: transitive
+    description:
+      name: wkt_parser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   xdg_directories:
     dependency: transitive
     description:
@@ -459,4 +550,4 @@ packages:
     version: "6.1.0"
 sdks:
   dart: ">=2.18.4 <3.0.0"
-  flutter: ">=2.8.0"
+  flutter: ">=3.3.0"
