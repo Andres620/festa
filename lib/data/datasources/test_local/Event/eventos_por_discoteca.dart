@@ -1,5 +1,3 @@
-
-
 import '../../../../domain/models/evento.dart';
 import '../../../../domain/repositories/eventos_por_discoteca_repository.dart';
 import 'events_generator.dart';
