@@ -1,12 +1,11 @@
 import 'dart:math';
-
-import 'package:festa/domain/exceptions/app_exception.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
+import '../../../domain/exceptions/app_exception.dart';
 import '../../../domain/models/evento.dart';
 import '../../../domain/repositories/events_repository.dart';
 
-/// Class that implements the events contract interacting with mongo atlas. 
+/// Class that implements the events contract interacting with mongo atlas.
 class EventsMongodb extends EventsRepository {
   final String connectionString;
   final String collection;
@@ -19,8 +18,7 @@ class EventsMongodb extends EventsRepository {
       List<Evento> eventsList = [];
       var db = await Db.create(connectionString);
       await db.open();
-      var eventsResponse =
-          await db.collection(collection).find().toList();
+      var eventsResponse = await db.collection(collection).find().toList();
 
       for (var eventMap in eventsResponse) {
         eventsList.add(Evento.fromJson(eventMap));
@@ -34,7 +32,6 @@ class EventsMongodb extends EventsRepository {
     }
   }
 
-
   ///Returns a random event from the database.
   ///This is used to send notifications to users.
   @override
@@ -43,8 +40,7 @@ class EventsMongodb extends EventsRepository {
       Evento event;
       var db = await Db.create(connectionString);
       await db.open();
-      var eventsResponse =
-          await db.collection(collection).find().toList();
+      var eventsResponse = await db.collection(collection).find().toList();
       var random = Random().nextInt(eventsResponse.length);
       event = Evento.fromJson(eventsResponse[random]);
       db.close();
@@ -55,15 +51,17 @@ class EventsMongodb extends EventsRepository {
               'Failed to establish connection with data repository. ${e.toString()}');
     }
   }
-  
+
   @override
-  Future<List<Evento>> getEventsByDisco(ObjectId? discoId) async{
+  Future<List<Evento>> getEventsByDisco(ObjectId? discoId) async {
     try {
       List<Evento> eventsList = [];
       var db = await Db.create(connectionString);
       await db.open();
-      var eventsResponse =
-          await db.collection(collection).find(where.eq("Discoteca", discoId)).toList();
+      var eventsResponse = await db
+          .collection(collection)
+          .find(where.eq("Discoteca", discoId))
+          .toList();
 
       for (var eventMap in eventsResponse) {
         eventsList.add(Evento.fromJson(eventMap));

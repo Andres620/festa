@@ -1,3 +1,4 @@
+import '../exceptions/app_exception.dart';
 import '../models/evento.dart';
 import '../repositories/eventos_por_discoteca_repository.dart';
 
@@ -12,6 +13,10 @@ class CuListarEventosPorDiscoteca {
   final EventosPorDiscotecaRepository _eventsRepository;
 
   Future<List<Evento>> getEventosPorDiscoteca() {
-    return _eventsRepository.getEventosPorDiscoteca();
+    try {
+      return _eventsRepository.getEventosPorDiscoteca();
+    } catch (e) {
+      throw AppException(errorMessage: e.toString());
+    }
   }
 }
