@@ -21,13 +21,12 @@ void main() {
     expect(response, isA<List<Promocion>>());
   });
 
-  test(
-      'DiscoMongodb - Makes a query to the mongo atlas repository with correct credentials from the data layer and gets the data.',
-      () async {
-    DiscoMongodb discoMongodb =
+  test('DiscoMongodb - get promo by disco fake', () async {
+    var discoMongodb =
         DiscoMongodb(connectionString: MONGO_URL, collection: COLLECTION_DiSCO);
-    var response = await discoMongodb.getDiscos();
-    expect(response.isNotEmpty, true);
+    final discoId = ObjectId?.fromHexString('63728041a1c8b7c18c2e7888');
+    var response = await discoMongodb.getPromosByDiscos(discoId);
+    expect(response, []);
   });
 
   test(
