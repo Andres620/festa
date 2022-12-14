@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import 'package:flutter/src/widgets/basic.dart' as Center;
 
 import '../../config/provider/disco_provider.dart';
-import '../../domain/models/evento.dart';
 
 class ListPromotionsByDiscoScreen extends StatelessWidget {
   final ObjectId? discoId;

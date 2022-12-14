@@ -63,7 +63,7 @@ class UserLevelScreen extends StatelessWidget {
         ),
         Container(
           height: 5,
-          color: Color.fromARGB(255, 22, 255, 1),
+          color:const Color.fromARGB(255, 22, 255, 1),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

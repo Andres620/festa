@@ -55,7 +55,6 @@ class _EventsInCalendarScreen extends State<EventsInCalendarScreen> {
       });
 
       _selectedEvents.value = _getEventsForDay(selectedDay);
-      print(_selectedEvents);
     }
   }
 
@@ -119,7 +118,7 @@ class _EventsInCalendarScreen extends State<EventsInCalendarScreen> {
           focusedDay: _focusedDay,
           firstDay: DateTime.utc(2010, 10, 16),
           lastDay: DateTime.utc(2030, 3, 14),
-          weekendDays: [6],
+          weekendDays: const [6],
           startingDayOfWeek: StartingDayOfWeek.monday,
           calendarFormat: _calendarFormat,
 
@@ -180,7 +179,6 @@ class _EventsInCalendarScreen extends State<EventsInCalendarScreen> {
                                 EventDetailsScreen(value[index]),
                           ),
                         ),
-                        print(value[index].nombre),
                       },
                       title: Text(value[index].nombre),
                       subtitle: Text(

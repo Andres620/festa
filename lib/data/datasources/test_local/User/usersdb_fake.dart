@@ -11,7 +11,7 @@ class Usersdbfake extends UserRepository {
   }
 
   @override
-  Future<Usuario> getUser(String id) {
+  Future<Usuario> getUser(String identification) {
     // TODO: implement getUser
     throw UnimplementedError();
   }

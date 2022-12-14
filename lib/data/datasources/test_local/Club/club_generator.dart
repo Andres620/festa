@@ -1,7 +1,6 @@
 
 import '../../../../domain/models/discoteca.dart';
-import '../../../../domain/models/usuario.dart';
-import '../User/user_generator.dart';
+
 
 class ClubGenerator {
   int numberClubs;
@@ -25,7 +24,4 @@ class ClubGenerator {
     return newClubs;
   }
 
-  Usuario _createUser (){
-    return UserGenerator(numberUsers: 1).createClubOwner()[0];
-  }
 }
